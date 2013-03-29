@@ -1,7 +1,7 @@
 $(function() {
   // Info for North Shuttle
   var northShuttleInfoElem = $('#northShuttleInfo'),
-      northNetworkFleetUrl   = 'http://50.56.166.75/networkfleetcar/getfleetgpsinfoextended?u=linkedin&p=lnkd',
+      networkFleetUrl   = 'http://50.56.166.75/networkfleetcar/getfleetgpsinfoextended?u=linkedin&p=lnkd',
       li_latlng         = '37.423327,-122.071152',
       isSouthbound,
       map,
@@ -11,46 +11,46 @@ $(function() {
       northStops = [
         {
           name: "Lombard & Pierce",
-          description: "",
+          description: "Pick-up at SW corner",
           pickupTime: [
             {
               hours: "7",
-              minutes: "30",
+              minutes: "20",
               ampm: "AM"
             },
    			{
               hours: "7",
-              minutes: "31",
+              minutes: "35",
               ampm: "PM"
             },
 			{
               hours: "10",
-              minutes: "03",
+              minutes: "10",
               ampm: "PM"
             }
           ],
           location: {
-            latitude: 37.7995,
-            longitude: -122.43939
+            latitude: 37.799295,
+            longitude: -122.439421
           }
         },
         {
           name: "Van Ness & Union",
-          description: "NW corner in front of Silver Platter Deli",
+          description: "Pick-up at NW corner",
           pickupTime: [
             {
               hours: "7",
-              minutes: "36",
+              minutes: "26",
               ampm: "AM"
             },
    			{
               hours: "7",
-              minutes: "24",
+              minutes: "27",
               ampm: "PM"
             },
 			{
-              hours: "9",
-              minutes: "57",
+              hours: "10",
+              minutes: "04",
               ampm: "PM"
             }
           ],
@@ -61,71 +61,71 @@ $(function() {
         },
         {
           name: "Van Ness & Sacramento",
-          description: "NW corner in front of Toyota/Scion Dealership",
+          description: "Pick-up at NW corner",
           pickupTime: [
             {
               hours: "7",
-              minutes: "39",
+              minutes: "30",
               ampm: "AM"
             },
    			{
               hours: "7",
-              minutes: "20",
+              minutes: "23",
               ampm: "PM"
             },
 			{
-              hours: "9",
-              minutes: "54",
+              hours: "10",
+              minutes: "00",
               ampm: "PM"
             }
           ],
           location: {
-            latitude: 37.791388,
-            longitude: -122.422425
+            latitude: 37.791353,
+            longitude: -122.422714
           }
         },
         {
-          name: "Van Ness & Eddy",
-          description: "NW corner by BBQ parking lot",
+          name: "Van Ness & Larch",
+          description: "Pick-up at NW coner of Van Ness & Larch. Drop-off at Van Ness & Eddy.",
           pickupTime: [
             {
               hours: "7",
-              minutes: "42",
+              minutes: "34",
               ampm: "AM"
             },
    			{
               hours: "7",
-              minutes: "16",
+              minutes: "19",
               ampm: "PM"
             },
 			{
               hours: "9",
-              minutes: "50",
+              minutes: "57",
               ampm: "PM"
             }
           ],
           location: {
-            latitude: 37.783,
-            longitude: -122.420717
+            latitude: 37.782495,
+            longitude: -122.420887
           }
         },
         {
           name: "8th & Market",
-          description: "",
+          description: "Pick-up at SW corner of 8th & Market. Drop-off at 9th & Market.",
           pickupTime: [
             {
               hours: "7",
-              minutes: "46",
+              minutes: "38",
               ampm: "AM"
             },
    			{
               hours: "7",
-              minutes: "12",
+              minutes: "14",
               ampm: "PM"
             },
 			{
               hours: "9",
-              minutes: "47",
+              minutes: "53",
               ampm: "PM"
             }
           ],
@@ -140,42 +140,42 @@ $(function() {
           pickupTime: [
             {
               hours: "7",
-              minutes: "52",
+              minutes: "44",
               ampm: "AM"
             },
    			{
               hours: "7",
-              minutes: "05",
+              minutes: "07",
               ampm: "PM"
             },
 			{
               hours: "9",
-              minutes: "43",
+              minutes: "48",
               ampm: "PM"
             }
           ],
           location: {
-            latitude: 37.7758,
-            longitude: -122.402603
+            latitude: 37.776061,
+            longitude: -122.402686
           }
         },
         {
           name: "Mountain View",
-          description: "",
+          description: "Pick-up/drop-off in front of 2025",
           pickupTime: [
             {
               hours: "8",
-              minutes: "50",
+              minutes: "43",
               ampm: "AM"
             },
    			{
               hours: "5",
-              minutes: "58",
+              minutes: "59",
               ampm: "PM"
             },
 			{
               hours: "8",
-              minutes: "47",
+              minutes: "51",
               ampm: "PM"
             }
           ],
@@ -186,11 +186,11 @@ $(function() {
         },
         {
           name: "Sunnyvale",
-          description: "",
+          description: "Pick-up/drop-off in front of buildings A and B",
           pickupTime: [
             {
-              hours: "9",
-              minutes: "02",
+              hours: "8",
+              minutes: "56",
               ampm: "AM"
             },
    			{
@@ -200,7 +200,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "36",
+              minutes: "40",
               ampm: "PM"
             }
           ],
@@ -213,202 +213,226 @@ $(function() {
 
   // Info for South Shuttle
   southShuttleInfoElem  = $('#southShuttleInfo'),
-      southNetworkFleetUrl   = 'http://50.56.166.75/networkfleetcar/getfleetgpsinfoextended?u=linkedin&p=lnkd',
       southShuttleLatLng,
 	  southBusMarker,
 	  southStops = [
 	    {
 		  name: "Fillmore & California",
-		  description: "",
+		  description: "Pick-up at SW corner",
 		  pickupTime: [
             {
-              hours: "7",
-              minutes: "25",
-              ampm: "AM"
-            },
-   			{
-              hours: "4",
-              minutes: "45",
-              ampm: "PM"
-            },
-			{
-              hours: "7",
-              minutes: "37",
-              ampm: "PM"
-            }
-          ],
-		  location: {
-		    latitude: 37.788952,
-		    longitude: -122.433942
-		  }
-		},
-		{
-		  name: "Fillmore & Turk/GG",
-		  description: "",
-		  pickupTime: [
-            {
-              hours: "7",
-              minutes: "28",
+              hours: "6",
+              minutes: "55",
               ampm: "AM"
             },
    			{
               hours: "6",
-              minutes: "28",
+              minutes: "59",
               ampm: "PM"
             },
 			{
               hours: "9",
-              minutes: "04",
+              minutes: "39",
               ampm: "PM"
             }
           ],
 		  location: {
-		    latitude: 37.780059,
-		    longitude: -122.432139
+		    latitude: 37.788797,
+		    longitude: -122.433925
 		  }
 		},
 		{
-		  name: "Divisadero & Haight",
-		  description: "",
+		  name: "Fillmore & Eddy",
+		  description: "Pick-up at NW corner of Fillmore & Eddy. Drop-off at Fillmore & Turk/Golden Gate.",
 		  pickupTime: [
             {
-              hours: "7",
-              minutes: "34",
+              hours: "6",
+              minutes: "58",
               ampm: "AM"
             },
    			{
               hours: "6",
-              minutes: "21",
+              minutes: "54",
               ampm: "PM"
             },
 			{
-              hours: "8",
-              minutes: "58",
+              hours: "9",
+              minutes: "36",
               ampm: "PM"
             }
           ],
 		  location: {
-		    latitude: 37.771346,
-		    longitude: -122.437208
+		    latitude: 37.781471,
+		    longitude: -122.432432
+		  }
+		},
+		{
+		  name: "Divisadero & Grove",
+	      description: "Pick-up at NW corner",
+	      pickupTime: [
+	        {
+	          hours: "7",
+	          minutes: "03",
+	          ampm: "AM"
+	        },
+	   	    {
+	          hours: "6",
+	          minutes: "47",
+	          ampm: "PM"
+	        },
+		    {
+	          hours: "9",
+	          minutes: "29",
+	          ampm: "PM"
+	        }
+	      ],
+		  location: {
+		    latitude: 37.776002,
+			longitude: -122.438179
+	      }
+		},
+		{
+		  name: "Divisadero & Haight",
+		  description: "Pick-up at SW corner",
+		  pickupTime: [
+            {
+              hours: "7",
+              minutes: "05",
+              ampm: "AM"
+            },
+   			{
+              hours: "6",
+              minutes: "44",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "27",
+              ampm: "PM"
+            }
+          ],
+		  location: {
+		    latitude: 37.771214,
+		    longitude: -122.437187
 		  }
 		},
 		{
 		  name: "Castro & Market",
-		  description: "",
+		  description: "Pick-up at SW corner",
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "38",
+              minutes: "09",
               ampm: "AM"
             },
    			{
               hours: "6",
-              minutes: "17",
+              minutes: "40",
               ampm: "PM"
             },
 			{
-              hours: "8",
-              minutes: "54",
+              hours: "9",
+              minutes: "24",
               ampm: "PM"
             }
           ],
 		  location: {
-		    latitude: 37.76297,
-		    longitude: -122.435009
+		    latitude: 37.762127,
+		    longitude: -122.435167
 		  }
 		},
 		{
 		  name: "24th & Noe",
-		  description: "",
+		  description: "Pick-up at SW corner",
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "44",
+              minutes: "15",
               ampm: "AM"
             },
    			{
               hours: "6",
-              minutes: "10",
+              minutes: "33",
               ampm: "PM"
             },
 			{
-              hours: "8",
-              minutes: "49",
+              hours: "9",
+              minutes: "18",
               ampm: "PM"
             }
           ],
 		  location: {
-		    latitude: 37.751519,
-		    longitude: -122.431994
+		    latitude: 37.751386,
+		    longitude: -122.431978
 		  }
 		},
 	    {
 		  name: "24th & Mission",
-		  description: "",
+		  description: "Pick-up at SW corner",
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "48",
+              minutes: "20",
               ampm: "AM"
             },
    			{
               hours: "6",
-              minutes: "05",
+              minutes: "27",
               ampm: "PM"
             },
 			{
-              hours: "8",
-              minutes: "44",
+              hours: "9",
+              minutes: "13",
               ampm: "PM"
             }
           ],
 		  location: {
-		    latitude: 37.752313,
-		    longitude: -122.418369
+		    latitude: 37.752783,
+		    longitude: -122.418406
 		  }
 		},
 		{
 		  name: "Cesar Chavez & Folsom",
-		  description: "",
+		  description: "Pick-up at SW corner",
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "52",
+              minutes: "23",
               ampm: "AM"
             },
    			{
               hours: "6",
-              minutes: "01",
+              minutes: "23",
               ampm: "PM"
             },
 			{
-              hours: "8",
-              minutes: "41",
+              hours: "9",
+              minutes: "10",
               ampm: "PM"
             }
           ],
 		  location: {
-		    latitude: 37.748083,
-		    longitude: -122.413808
+		    latitude: 37.748146,
+		    longitude: -122.413855
 		  }
 		},
 		{
 		  name: "Mountain View",
-		  description: "",
+		  description: "Pick-up/drop-off in front of 2025",
 		  pickupTime: [
             {
               hours: "8",
-              minutes: "47",
+              minutes: "20",
               ampm: "AM"
             },
    			{
-              hours: "4",
-              minutes: "58",
+              hours: "5",
+              minutes: "19",
               ampm: "PM"
             },
 			{
-              hours: "7",
-              minutes: "49",
+              hours: "8",
+              minutes: "16",
               ampm: "PM"
             }
           ],
@@ -419,21 +443,21 @@ $(function() {
 		},
 		{
 		  name: "Sunnyvale",
-		  description: "",
+		  description: "Pick-up/drop-off in front of buildings A and B",
 		  pickupTime: [
             {
               hours: "8",
-              minutes: "59",
+              minutes: "32",
               ampm: "AM"
             },
    			{
-              hours: "4",
-              minutes: "45",
+              hours: "5",
+              minutes: "05",
               ampm: "PM"
             },
 			{
-              hours: "7",
-              minutes: "37",
+              hours: "8",
+              minutes: "04",
               ampm: "PM"
             }
           ],
@@ -540,7 +564,7 @@ $(function() {
 	  position: new google.maps.LatLng(northLatitude, northLongitude),
 	  map: map,
 	  icon: new google.maps.MarkerImage("img/northbusicon.png"),
-	  title: "Current Location of North Shuttle",
+	  title: "Current location of SF Commuter Bus - North",
 	  animation: google.maps.Animation.DROP
 	});
 	
@@ -548,7 +572,7 @@ $(function() {
       position: new google.maps.LatLng(southLatitude, southLongitude),
       map: map,
       icon: new google.maps.MarkerImage("img/southbusicon.png"),
-      title: "Current Location of South Shuttle",
+      title: "Current location of SF Commuter Bus - South",
       animation: google.maps.Animation.DROP
     });	
 
@@ -569,8 +593,8 @@ $(function() {
 	var southLatitude = attr.south.Latitude;
     var southLongitude = attr.south.Longitude;
 
-	northShuttleInfoElem.find('.speed').prepend($('<span>').text("North SF shuttle speed: " + attr.north.AvgSpeed).addClass('value')).css('display', 'inline');
-	southShuttleInfoElem.find('.speed').prepend($('<span>').text("South SF shuttle speed: " + attr.south.AvgSpeed).addClass('value')).css('display', 'inline');	
+	northShuttleInfoElem.find('.speed').prepend($('<span>').text("Current speed of SF Commuter Bus - North: " + attr.north.AvgSpeed).addClass('value')).css('display', 'inline');
+	southShuttleInfoElem.find('.speed').prepend($('<span>').text("Current speed of SF Commuter Bus - South: " + attr.south.AvgSpeed).addClass('value')).css('display', 'inline');	
 	
 	drawMap(northLatitude, northLongitude, southLatitude, southLongitude);
   },
@@ -609,7 +633,7 @@ $(function() {
           map: map,
           title: currStop.name
         });
-        addInfoWindow(marker, currStop.name + "<br/>Times: " + getPickupTimes(currStop));
+        addInfoWindow(marker, currStop.name + "<br/>"+ currStop.description + "<br/>Times: " + getPickupTimes(currStop));
       }
     }
 	for (i=0,len=southStops.length;i<len;++i) {
@@ -734,28 +758,19 @@ $(function() {
 
   updateShuttleLocation = function() {
     // Update both shuttle locations
-    var attr = {};
-    $.ajax(northNetworkFleetUrl, {
+    $.ajax(networkFleetUrl, {
       crossDomain: true,
       dataType: 'jsonp',
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
+	      var attr = {};
           attr.north = data.features[0].attributes;
+          attr.south = data.features[1].attributes;
           northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
+		  southShuttleLatLng = attr.south.Latitude + ',' + attr.south.Longitude;
           northBusMarker.setPosition(new google.maps.LatLng(attr.north.Latitude, attr.north.Longitude));
-        }      
-      }
-    });
-	
-    $.ajax(southNetworkFleetUrl, {
-      crossDomain: true,
-      dataType: 'jsonp',
-      success: function(data, textStatus) {
-        if (data && data.features && data.features.length) {
-          attr.south = data.features[0].attributes;
-          southShuttleLatLng = attr.south.Latitude + ',' + attr.south.Longitude;
           southBusMarker.setPosition(new google.maps.LatLng(attr.south.Latitude, attr.south.Longitude));
-        }
+        }      
       }
     });
     setupPolling();
@@ -773,43 +788,24 @@ $(function() {
   init = function() {
     detectDirection();
  
-    var attr = {};
-    $.ajax(northNetworkFleetUrl, {
+    $.ajax(networkFleetUrl, {
       crossDomain: true,
       dataType: 'jsonp',
       success: function(data, textStatus) {
         //var obj, latitude, longitude, i, len, field, url; // DEBUG: what is this for?
         if (data && data.features && data.features.length) {
+	      var attr = {};
           attr.north = data.features[0].attributes;
-          initSouth();
+		  attr.south = data.features[1].attributes;
+          handleTrackingData(attr);
+          $("#touch-init").remove();
+          $("html").removeClass("initial-bootstrapping");
+          setTimeout(function() {
+            window.scrollTo(0,0);
+          },0);
         }
       }
     });
-
-	var initSouth = function() {	
-	  $.ajax(southNetworkFleetUrl, {
-        crossDomain: true,
-        dataType: 'jsonp',
-        success: function(data, textStatus) {
-          //var obj, latitude, longitude, i, len, field, url; // DEBUG: what is this for?
-          if (data && data.features && data.features.length) {
-            attr.south = data.features[0].attributes;
-            initMap();
-          }
-        }
-      });
-	};
-
-    var initMap = function() {
-	  if (attr.north && attr.south) {
-        handleTrackingData(attr);
-        $("#touch-init").remove();
-        $("html").removeClass("initial-bootstrapping");
-        setTimeout(function() {
-          window.scrollTo(0,0);
-        },0);
-      }
-    };
 
     setupActions();
     setupPolling();

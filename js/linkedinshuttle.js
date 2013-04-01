@@ -764,8 +764,8 @@ $(function() {
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
 	      var attr = {};
-          attr.north = data.features[0].attributes;
-          attr.south = data.features[1].attributes;
+          attr.south = data.features[0].attributes;
+          attr.north = data.features[1].attributes;
           northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
 		  southShuttleLatLng = attr.south.Latitude + ',' + attr.south.Longitude;
           northBusMarker.setPosition(new google.maps.LatLng(attr.north.Latitude, attr.north.Longitude));
@@ -795,8 +795,8 @@ $(function() {
         //var obj, latitude, longitude, i, len, field, url; // DEBUG: what is this for?
         if (data && data.features && data.features.length) {
 	      var attr = {};
-          attr.north = data.features[0].attributes;
-		  attr.south = data.features[1].attributes;
+          attr.south = data.features[0].attributes;
+		  attr.north = data.features[1].attributes;
           handleTrackingData(attr);
           $("#touch-init").remove();
           $("html").removeClass("initial-bootstrapping");

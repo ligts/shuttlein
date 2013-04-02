@@ -1,6 +1,6 @@
 $(function() {
   // Info for North Shuttle
-  var northShuttleInfoElem = $('#northShuttleInfo'),
+  var shuttleInfoElem = $('#shuttleInfo'),
       networkFleetUrl   = 'http://50.56.166.75/networkfleetcar/getfleetgpsinfoextended?u=linkedin&p=lnkd',
       li_latlng         = '37.423327,-122.071152',
       isSouthbound,
@@ -212,7 +212,6 @@ $(function() {
       ],	
 
   // Info for South Shuttle
-  southShuttleInfoElem  = $('#southShuttleInfo'),
       southShuttleLatLng,
 	  southBusMarker,
 	  southStops = [
@@ -481,74 +480,70 @@ $(function() {
   // Display the distance data from Google Distance Matrix API.
   handleDistanceData = function(data) {
     var distanceData = extractDistanceData(data),
-        distElemForNorthShuttle     = northShuttleInfoElem.find('.dist .value'),
-        distElemForSouthShuttle     = southShuttleInfoElem.find('.dist .value'),
+        distElemForNorthShuttle     = shuttleInfoElem.find('#northShuttle .dist .value'),
+        distElemForSouthShuttle     = shuttleInfoElem.find('#southShuttle .dist .value'),
         date         = new Date();
     if (!distanceData) { return; }
     if (!distElemForNorthShuttle.length) {
       distElemForNorthShuttle = $('<span>').addClass('value');
-      northShuttleInfoElem.find('.dist').prepend(distElemForNorthShuttle);
+      shuttleInfoElem.find('#northShuttle .dist').prepend(distElemForNorthShuttle);
     }
 	if (!distElemForSouthShuttle.length) {
       distElemForSouthShuttle = $('<span>').addClass('value');
-      southShuttleInfoElem.find('.dist').prepend(distElemForSouthShuttle);
+      shuttleInfoElem.find('#southShuttle .dist').prepend(distElemForSouthShuttle);
     }
 
     if (distanceData["north"].distance && distanceData["north"].distance.text) {
       distElemForNorthShuttle.text(parseFloat(distanceData["north"].distance.text));
-      northShuttleInfoElem.find('.dist').css('display', 'inline');
+      shuttleInfoElem.find('#northShuttle .dist').css('display', 'inline');
     }
 
 	if (distanceData["south"].distance && distanceData["south"].distance.text) {
       distElemForSouthShuttle.text(parseFloat(distanceData["south"].distance.text));
-      southShuttleInfoElem.find('.dist').css('display', 'inline');
+      shuttleInfoElem.find('#southShuttle .dist').css('display', 'inline');
     }
 
-    northShuttleInfoElem.children('.thinking').hide();
-    southShuttleInfoElem.children('.thinking').hide();
-    northShuttleInfoElem.children('ul').show();
-    southShuttleInfoElem.children('ul').show();
+    shuttleInfoElem.children('.thinking').hide();
+    shuttleInfoElem.children('ul').show();
   },
 
   // DEBUG: not currently called (called from setupStopChooser)
   // Display the distance data from Google Distance Matrix API.
   handleEtaData = function(data) {
     var distanceData = extractDistanceData(data),
-        distElemForNorthShuttle     = northShuttleInfoElem.find('.dist .value'),
-        distElemForSouthShuttle     = southShuttleInfoElem.find('.dist .value'),
-        etaElemForNorthShuttle      = northShuttleInfoElem.find('.eta .value'),
-        etaElemForSouthShuttle      = southShuttleInfoElem.find('.eta .value'),
+        distElemForNorthShuttle     = shuttleInfoElem.find('#northShuttle .dist .value'),
+        distElemForSouthShuttle     = shuttleInfoElem.find('#southShuttle .dist .value'),
+        etaElemForNorthShuttle      = shuttleInfoElem.find('#northShuttle .eta .value'),
+        etaElemForSouthShuttle      = shuttleInfoElem.find('#southShuttle .eta .value'),
         date         = new Date();
     if (!distanceData) { return; }
     if (!etaElemForNorthShuttle.length) {
       etaElemForNorthShuttle = $('<span>').addClass('value');
-      northShuttleInfoElem.find('.eta').prepend(etaElemForNorthShuttle);
+      shuttleInfoElem.find('#northShuttle .eta').prepend(etaElemForNorthShuttle);
     }
 	if (!etaElemForSouthShuttle.length) {
       etaElemForSouthShuttle = $('<span>').addClass('value');
-      southShuttleInfoElem.find('.eta').prepend(etaElemForSouthShuttle);
+      shuttleInfoElem.find('#southShuttle .eta').prepend(etaElemForSouthShuttle);
     }
 
     if (date.getHours() > 12 && date.getHours() < 17 && distanceData["north"].distance && distanceData["north"].duration.text) {
       // don't factor in intermediary stop time estimates
       etaElemForNorthShuttle.text(parseInt(distanceData["north"].duration.text, 10));
-      northShuttleInfoElem.find('.eta').css('display', 'inline');
+      shuttleInfoElem.find('#northShuttle .eta').css('display', 'inline');
     }
     if (date.getHours() > 12 && date.getHours() < 17 && distanceData["south"].distance && distanceData["south"].duration.text) {
       // don't factor in intermediary stop time estimates
       etaElemForSouthShuttle.text(parseInt(distanceData["south"].duration.text, 10));
-      southShuttleInfoElem.find('.eta').css('display', 'inline');
+      shuttleInfoElem.find('#southShuttle .eta').css('display', 'inline');
     }
     // DEBUG: NOT SURE IF WE CAN EXTRAPOLATE THIS TO TWO SHUTTLES
     if ((date.getHours() < 12 || date.getHours() >= 17) && data.customEta) {
       // use custom eta time
       etaElemForNorthShuttle.text(data.customEta);
-      northShuttleInfoElem.find('.eta').css('display', 'inline');
+      shuttleInfoElem.find('#northShuttle .eta').css('display', 'inline');
     }
-    northShuttleInfoElem.children('.thinking').hide();
-	southShuttleInfoElem.children('.thinking').hide();
-    northShuttleInfoElem.children('ul').show();
-    southShuttleInfoElem.children('ul').show();
+    shuttleInfoElem.children('.thinking').hide();
+    shuttleInfoElem.children('ul').show();
   },
 
   drawMap = function(northLatitude, northLongitude, southLatitude, southLongitude) {
@@ -593,9 +588,11 @@ $(function() {
 	var southLatitude = attr.south.Latitude;
     var southLongitude = attr.south.Longitude;
 
-	northShuttleInfoElem.find('.speed').prepend($('<span>').text("Current speed of SF Commuter Bus - North: " + attr.north.AvgSpeed).addClass('value')).css('display', 'inline');
-	southShuttleInfoElem.find('.speed').prepend($('<span>').text("Current speed of SF Commuter Bus - South: " + attr.south.AvgSpeed).addClass('value')).css('display', 'inline');	
+	shuttleInfoElem.find('.northShuttle .speed').prepend($('<span>').text("North Bus: " + attr.north.AvgSpeed).addClass('value')).css('display', 'inline');
+	shuttleInfoElem.find('.southShuttle .speed').prepend($('<span>').text("South Bus: " + attr.south.AvgSpeed).addClass('value')).css('display', 'inline');	
 	
+	shuttleInfoElem.children('.thinking').hide();
+    shuttleInfoElem.children('ul').show();
 	drawMap(northLatitude, northLongitude, southLatitude, southLongitude);
   },
 

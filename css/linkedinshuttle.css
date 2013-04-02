@@ -149,11 +149,11 @@ nav img {
   font-weight: bold;
 }
 
-#northShuttleInfo {
+.northShuttle {
   color: #E00000;
 }
 
-#southShuttleInfo {
+.southShuttle {
   color: #003399;
 }
 

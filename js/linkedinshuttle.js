@@ -15,7 +15,7 @@ $(function() {
           pickupTime: [
             {
               hours: "7",
-              minutes: "20",
+              minutes: "35",
               ampm: "AM"
             },
    			{
@@ -40,7 +40,7 @@ $(function() {
           pickupTime: [
             {
               hours: "7",
-              minutes: "26",
+              minutes: "41",
               ampm: "AM"
             },
    			{
@@ -65,7 +65,7 @@ $(function() {
           pickupTime: [
             {
               hours: "7",
-              minutes: "30",
+              minutes: "45",
               ampm: "AM"
             },
    			{
@@ -90,7 +90,7 @@ $(function() {
           pickupTime: [
             {
               hours: "7",
-              minutes: "34",
+              minutes: "49",
               ampm: "AM"
             },
    			{
@@ -115,7 +115,7 @@ $(function() {
           pickupTime: [
             {
               hours: "7",
-              minutes: "38",
+              minutes: "53",
               ampm: "AM"
             },
    			{
@@ -140,7 +140,7 @@ $(function() {
           pickupTime: [
             {
               hours: "7",
-              minutes: "44",
+              minutes: "59",
               ampm: "AM"
             },
    			{
@@ -164,8 +164,8 @@ $(function() {
           description: "Pick-up/drop-off in front of 2025",
           pickupTime: [
             {
-              hours: "8",
-              minutes: "43",
+              hours: "9",
+              minutes: "00",
               ampm: "AM"
             },
    			{
@@ -189,8 +189,8 @@ $(function() {
           description: "Pick-up/drop-off in front of buildings A and B",
           pickupTime: [
             {
-              hours: "8",
-              minutes: "56",
+              hours: "9",
+              minutes: "13",
               ampm: "AM"
             },
    			{
@@ -220,8 +220,8 @@ $(function() {
 		  description: "Pick-up at SW corner",
 		  pickupTime: [
             {
-              hours: "6",
-              minutes: "55",
+              hours: "7",
+              minutes: "20",
               ampm: "AM"
             },
    			{
@@ -231,7 +231,7 @@ $(function() {
             },
 			{
               hours: "9",
-              minutes: "39",
+              minutes: "40",
               ampm: "PM"
             }
           ],
@@ -245,8 +245,8 @@ $(function() {
 		  description: "Pick-up at NW corner of Fillmore & Eddy. Drop-off at Fillmore & Turk/Golden Gate.",
 		  pickupTime: [
             {
-              hours: "6",
-              minutes: "58",
+              hours: "7",
+              minutes: "23",
               ampm: "AM"
             },
    			{
@@ -256,7 +256,7 @@ $(function() {
             },
 			{
               hours: "9",
-              minutes: "36",
+              minutes: "37",
               ampm: "PM"
             }
           ],
@@ -271,7 +271,7 @@ $(function() {
 	      pickupTime: [
 	        {
 	          hours: "7",
-	          minutes: "03",
+	          minutes: "28",
 	          ampm: "AM"
 	        },
 	   	    {
@@ -281,7 +281,7 @@ $(function() {
 	        },
 		    {
 	          hours: "9",
-	          minutes: "29",
+	          minutes: "30",
 	          ampm: "PM"
 	        }
 	      ],
@@ -296,7 +296,7 @@ $(function() {
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "05",
+              minutes: "30",
               ampm: "AM"
             },
    			{
@@ -306,7 +306,7 @@ $(function() {
             },
 			{
               hours: "9",
-              minutes: "27",
+              minutes: "28",
               ampm: "PM"
             }
           ],
@@ -321,7 +321,7 @@ $(function() {
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "09",
+              minutes: "34",
               ampm: "AM"
             },
    			{
@@ -346,7 +346,7 @@ $(function() {
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "15",
+              minutes: "40",
               ampm: "AM"
             },
    			{
@@ -356,7 +356,7 @@ $(function() {
             },
 			{
               hours: "9",
-              minutes: "18",
+              minutes: "19",
               ampm: "PM"
             }
           ],
@@ -371,7 +371,7 @@ $(function() {
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "20",
+              minutes: "45",
               ampm: "AM"
             },
    			{
@@ -396,7 +396,7 @@ $(function() {
 		  pickupTime: [
             {
               hours: "7",
-              minutes: "23",
+              minutes: "48",
               ampm: "AM"
             },
    			{
@@ -421,7 +421,7 @@ $(function() {
 		  pickupTime: [
             {
               hours: "8",
-              minutes: "20",
+              minutes: "45",
               ampm: "AM"
             },
    			{
@@ -446,7 +446,7 @@ $(function() {
 		  pickupTime: [
             {
               hours: "8",
-              minutes: "32",
+              minutes: "57",
               ampm: "AM"
             },
    			{

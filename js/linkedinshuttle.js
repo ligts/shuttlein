@@ -1091,38 +1091,38 @@ $(function() {
   },
 
   //drawMap = function(northLatitude, northLongitude, southLatitude, southLongitude, southLatitude2, southLongitude2) {
-	drawMap = function(northLatitude, northLongitude, southLatitude, southLongitude) {
+	drawMap = function(southLatitude, southLongitude, southLatitude2, southLongitude2) {
     map = new google.maps.Map(document.getElementById("map_canvas"),{
       zoom: 13,
-      center: new google.maps.LatLng(northLatitude, northLongitude), // DEBUG: center around both instead of hardcoding to center around North Shuttle?
+      center: new google.maps.LatLng(southLatitude, southLongitude), // DEBUG: this is kinda arbitrary for now
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false
     });
 
-    northBusMarker = new google.maps.Marker({
+    /*northBusMarker = new google.maps.Marker({
 	  position: new google.maps.LatLng(northLatitude, northLongitude),
 	  map: map,
 	  icon: new google.maps.MarkerImage("img/northbusicon.png"),
 	  title: "Current location of SF Commuter Bus - North",
 	  animation: google.maps.Animation.DROP
-	});
+	});*/
 	
 	southBusMarker = new google.maps.Marker({
       position: new google.maps.LatLng(southLatitude, southLongitude),
       map: map,
-      icon: new google.maps.MarkerImage("img/southbusicon.png"),
+      icon: new google.maps.MarkerImage("img/southbusicon1.png"),
       title: "Current location of SF Commuter Bus - South 1",
       animation: google.maps.Animation.DROP
     });	
 
-	/*southBusMarker2 = new google.maps.Marker({
+	southBusMarker2 = new google.maps.Marker({
       position: new google.maps.LatLng(southLatitude2, southLongitude2),
       map: map,
-      icon: new google.maps.MarkerImage("img/southbusicon.png"),
+      icon: new google.maps.MarkerImage("img/southbusicon2.png"),
       title: "Current location of SF Commuter Bus - South 2",
       animation: google.maps.Animation.DROP
-    });*/ // TODO
+    });
 
     addStops();
     addYou();
@@ -1130,28 +1130,27 @@ $(function() {
 
   handleTrackingData = function(attr) {
     // Have to proxy Google Distance Matrix API since it doesn't support JSONP
-    // var i, len; // DEBUG: do we need this?
-	northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
+	//northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
 	southShuttleLatLng = attr.south.Latitude + ',' + attr.south.Longitude;
-	//southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude; // TODO
+	southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude; // TODO
 	// GK: commented this to remove dependency on server
 	//setupStopChooser();
 	
-    var northLatitude = attr.north.Latitude;
-    var northLongitude = attr.north.Longitude;
+    //var northLatitude = attr.north.Latitude;
+    //var northLongitude = attr.north.Longitude;
 	var southLatitude = attr.south.Latitude;
     var southLongitude = attr.south.Longitude;
-	//var southLatitude2 = attr.south2.Latitude; // TODO
-	//var southLongitude2 = attr.south2.Longitude; // TODO
+	var southLatitude2 = attr.south2.Latitude;
+	var southLongitude2 = attr.south2.Longitude;
 
-	shuttleInfoElem.find('#northShuttle1 .speed').prepend($('<span>').text("North Bus: " + attr.north.AvgSpeed).addClass('value')).css('display', 'inline');
+	//shuttleInfoElem.find('#northShuttle1 .speed').prepend($('<span>').text("North Bus: " + attr.north.AvgSpeed).addClass('value')).css('display', 'inline');
 	shuttleInfoElem.find('#southShuttle1 .speed').prepend($('<span>').text("South Bus: " + attr.south.AvgSpeed).addClass('value')).css('display', 'inline');	
-	//shuttleInfoElem.find('#southShuttle2 .speed').prepend($('<span>').text("South Bus 2: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	 // TODO
+	shuttleInfoElem.find('#southShuttle2 .speed').prepend($('<span>').text("South Bus 2: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	 // TODO
 	
 	shuttleInfoElem.children('.thinking').hide();
     shuttleInfoElem.children('ul').show();
 	//drawMap(northLatitude, northLongitude, southLatitude, southLongitude, southLatitude2, southLongitude2);
-	drawMap(northLatitude, northLongitude, southLatitude, southLongitude);
+	drawMap(southLatitude, southLongitude, southLatitude2, southLongitude2);
   },
 
   centerMap = function(lat, longitude) {
@@ -1178,8 +1177,8 @@ $(function() {
 		times = stop.pickupTime.monThurs;
 	}
 
-    var southBoundTimes = "Southbound Times: ";
-    var northBoundTimes = "Northbound Times: ";
+    var southBoundTimes = "Pick Up Times: ";
+    var northBoundTimes = "Drop Off Times: ";
     for(var i = 0; i < times.length; i++) {
 	  if(times[i].ampm == "AM") {
 	    southBoundTimes += times[i].hours + ":" + times[i].minutes + times[i].ampm + " "
@@ -1299,11 +1298,11 @@ $(function() {
       }
     });
 
-    $("#northShuttleLoc").click(function() {
+    /*$("#northShuttleLoc").click(function() {
       if (northBusMarker) {
         centerMap(northBusMarker.position.lat(), northBusMarker.position.lng());
       }
-    });
+    });*/
 
     $("#southShuttleLoc").click(function() {
       if (southBusMarker) {
@@ -1311,11 +1310,11 @@ $(function() {
       }
     });
 
-    /*$("#southShuttleLoc2").click(function() {
+    $("#southShuttleLoc2").click(function() {
       if (southBusMarker2) {
         centerMap(southBusMarker2.position.lat(), southBusMarker2.position.lng());
       }
-    });*/ // TODO
+    });
 
     $("#refresh").click(function() {
       $('#stopChooser').trigger('change');
@@ -1338,15 +1337,15 @@ $(function() {
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
 	      var attr = {};
+	      //attr.north = data.features[0].attributes;
           attr.south = data.features[0].attributes;
-          attr.north = data.features[1].attributes;
-          //attr.south2 = data.features[0].attributes; // TODO: replace with new shuttle info from API
-          northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
+          attr.south2 = data.features[1].attributes;
+          //northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
 		  southShuttleLatLng = attr.south.Latitude + ',' + attr.south.Longitude;
-		  //southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude; // TODO
-          northBusMarker.setPosition(new google.maps.LatLng(attr.north.Latitude, attr.north.Longitude));
+		  southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
+          //northBusMarker.setPosition(new google.maps.LatLng(attr.north.Latitude, attr.north.Longitude));
           southBusMarker.setPosition(new google.maps.LatLng(attr.south.Latitude, attr.south.Longitude));
-          //southBusMarker2.setPosition(new google.maps.LatLng(attr.south2.Latitude, attr.south2.Longitude)); // TODO
+          southBusMarker2.setPosition(new google.maps.LatLng(attr.south2.Latitude, attr.south2.Longitude));
         }      
       }
     });
@@ -1369,12 +1368,11 @@ $(function() {
       crossDomain: true,
       dataType: 'jsonp',
       success: function(data, textStatus) {
-        //var obj, latitude, longitude, i, len, field, url; // DEBUG: what is this for?
         if (data && data.features && data.features.length) {
 	      var attr = {};
           attr.south = data.features[0].attributes;
-		  attr.north = data.features[1].attributes;
-		  //attr.south2 = data.features[0].attributes; // TODO
+		  attr.south2 = data.features[1].attributes;
+		  //attr.north = data.features[1].attributes;
           handleTrackingData(attr);
           $("#touch-init").remove();
           $("html").removeClass("initial-bootstrapping");

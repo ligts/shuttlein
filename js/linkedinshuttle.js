@@ -906,12 +906,12 @@ $(function() {
               },
    			  {
                 hours: "7",
-                minutes: "42",
+                minutes: "45",
                 ampm: "PM"
               },
 			  {
                 hours: "8",
-                minutes: "42",
+                minutes: "45",
                 ampm: "PM"
               }
 	        ],
@@ -1091,7 +1091,8 @@ $(function() {
   },
 
   //drawMap = function(northLatitude, northLongitude, southLatitude, southLongitude, southLatitude2, southLongitude2) {
-	drawMap = function(southLatitude1, southLongitude1, southLatitude2, southLongitude2) {
+	drawMap = function(southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr) {
+		
     map = new google.maps.Map(document.getElementById("map_canvas"),{
       zoom: 13,
       center: new google.maps.LatLng(southLatitude1, southLongitude1), // DEBUG: this is kinda arbitrary for now
@@ -1114,7 +1115,8 @@ $(function() {
       icon: new google.maps.MarkerImage("img/southbusicon1.png"),
       title: "Current location of SF Commuter Bus - South 1",
       animation: google.maps.Animation.DROP
-    });	
+    });
+	//addInfoWindow(southBusMarker1, attr.south1.AvgSpeed);
 
 	southBusMarker2 = new google.maps.Marker({
       position: new google.maps.LatLng(southLatitude2, southLongitude2),
@@ -1123,6 +1125,7 @@ $(function() {
       title: "Current location of SF Commuter Bus - South 2",
       animation: google.maps.Animation.DROP
     });
+	//addInfoWindow(southBusMarker2, attr.south2.AvgSpeed);
 
     addStops();
     addYou();
@@ -1150,7 +1153,7 @@ $(function() {
 	shuttleInfoElem.children('.thinking').hide();
     shuttleInfoElem.children('ul').show();
 	//drawMap(northLatitude, northLongitude, southLatitude, southLongitude, southLatitude2, southLongitude2);
-	drawMap(southLatitude1, southLongitude1, southLatitude2, southLongitude2);
+	drawMap(southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr);
   },
 
   centerMap = function(lat, longitude) {
@@ -1177,8 +1180,14 @@ $(function() {
 		times = stop.pickupTime.monThurs;
 	}
 
-    var southBoundTimes = "Pick Up Times: ";
-    var northBoundTimes = "Drop Off Times: ";
+	if(stop.name == "Mountain View" || stop.name == "Sunnyvale") {
+		var southBoundTimes = "Drop Off Times: ";
+    	var northBoundTimes = "Pick Up Times: ";
+	} else {
+    	var southBoundTimes = "Pick Up Times: ";
+    	var northBoundTimes = "Drop Off Times: ";
+	}
+
     for(var i = 0; i < times.length; i++) {
 	  if(times[i].ampm == "AM") {
 	    southBoundTimes += times[i].hours + ":" + times[i].minutes + times[i].ampm + " "

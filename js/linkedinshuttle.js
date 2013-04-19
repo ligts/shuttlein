@@ -416,12 +416,22 @@ $(function() {
               },
  			  {
                 hours: "6",
-                minutes: "39",
+                minutes: "25",
                 ampm: "PM"
               },
 			  {
+                hours: "7",
+                minutes: "25",
+                ampm: "PM"
+              },
+ 			  {
                 hours: "9",
-                minutes: "19",
+                minutes: "06",
+                ampm: "PM"
+              },
+			  {
+                hours: "10",
+                minutes: "06",
                 ampm: "PM"
               }
 	        ]
@@ -473,19 +483,29 @@ $(function() {
                 minutes: "53",
                 ampm: "AM"
               },
-			  {
+		      {
                 hours: "7",
                 minutes: "23",
                 ampm: "AM"
               },
-			  {
+ 			  {
                 hours: "6",
-                minutes: "34",
+                minutes: "20",
                 ampm: "PM"
               },
 			  {
+                hours: "7",
+                minutes: "20",
+                ampm: "PM"
+              },
+ 			  {
                 hours: "9",
-                minutes: "16",
+                minutes: "02",
+                ampm: "PM"
+              },
+			  {
+                hours: "10",
+                minutes: "02",
                 ampm: "PM"
               }
 	        ]
@@ -542,16 +562,26 @@ $(function() {
                 minutes: "28",
                 ampm: "AM"
               },
-			  {
+ 			  {
                 hours: "6",
-                minutes: "27",
+                minutes: "13",
+                ampm: "PM"
+              },
+			  {
+                hours: "7",
+                minutes: "13",
+                ampm: "PM"
+              },
+ 			  {
+                hours: "8",
+                minutes: "55",
                 ampm: "PM"
               },
 			  {
                 hours: "9",
-                minutes: "09",
+                minutes: "55",
                 ampm: "PM"
-              }
+            }
 	        ]
           },
 		  location: {
@@ -601,19 +631,29 @@ $(function() {
                 minutes: "00",
                 ampm: "AM"
               },
-			  {
+		      {
                 hours: "7",
                 minutes: "30",
                 ampm: "AM"
               },
-			  {
+ 			  {
                 hours: "6",
-                minutes: "24",
+                minutes: "10",
+                ampm: "PM"
+              },
+			  {
+                hours: "7",
+                minutes: "10",
+                ampm: "PM"
+              },
+ 			  {
+                hours: "8",
+                minutes: "54",
                 ampm: "PM"
               },
 			  {
                 hours: "9",
-                minutes: "07",
+                minutes: "54",
                 ampm: "PM"
               }
 	        ]
@@ -665,19 +705,29 @@ $(function() {
                 minutes: "04",
                 ampm: "AM"
               },
-			  {
+		      {
                 hours: "7",
                 minutes: "34",
                 ampm: "AM"
               },
-			  {
+ 			  {
                 hours: "6",
-                minutes: "20",
+                minutes: "06",
+                ampm: "PM"
+              },
+			  {
+                hours: "7",
+                minutes: "06",
+                ampm: "PM"
+              },
+ 			  {
+                hours: "8",
+                minutes: "50",
                 ampm: "PM"
               },
 			  {
                 hours: "9",
-                minutes: "04",
+                minutes: "50",
                 ampm: "PM"
               }
 	        ]
@@ -725,23 +775,33 @@ $(function() {
 	        ],
 	        fri: [
 			  {
-                hours: "7",
-                minutes: "10",
-                ampm: "AM"
-              },
-			  {
+              hours: "7",
+              minutes: "10",
+              ampm: "AM"
+            },
+		      {
                 hours: "7",
                 minutes: "40",
                 ampm: "AM"
               },
-			  {
-                hours: "6",
-                minutes: "13",
+ 			  {
+                hours: "5",
+                minutes: "59",
                 ampm: "PM"
               },
-		      {
+			  {
+                hours: "6",
+                minutes: "59",
+                ampm: "PM"
+              },
+ 			  {
                 hours: "8",
-                minutes: "58",
+                minutes: "44",
+                ampm: "PM"
+              },
+			  {
+                hours: "9",
+                minutes: "44",
                 ampm: "PM"
               }
 	        ]
@@ -798,14 +858,24 @@ $(function() {
                 minutes: "45",
                 ampm: "AM"
               },
-			  {
-                hours: "6",
-                minutes: "07",
+ 			  {
+                hours: "5",
+                minutes: "53",
                 ampm: "PM"
               },
 			  {
-                hours: "8",
+                hours: "6",
                 minutes: "53",
+                ampm: "PM"
+              },
+ 			  {
+                hours: "8",
+                minutes: "39",
+                ampm: "PM"
+              },
+			  {
+                hours: "9",
+                minutes: "39",
                 ampm: "PM"
               }
 	        ]
@@ -857,19 +927,29 @@ $(function() {
                 minutes: "18",
                 ampm: "AM"
               },
-			  {
+		      {
                 hours: "7",
                 minutes: "48",
                 ampm: "AM"
               },
-			  {
-                hours: "6",
-                minutes: "03",
+ 			  {
+                hours: "5",
+                minutes: "49",
                 ampm: "PM"
               },
 			  {
+                hours: "6",
+                minutes: "49",
+                ampm: "PM"
+              },
+ 			  {
                 hours: "8",
-                minutes: "50",
+                minutes: "36",
+                ampm: "PM"
+              },
+			  {
+                hours: "9",
+                minutes: "36",
                 ampm: "PM"
               }
 	        ]
@@ -921,19 +1001,29 @@ $(function() {
                 minutes: "15",
                 ampm: "AM"
               },
-			  {
+		      {
                 hours: "8",
                 minutes: "45",
                 ampm: "AM"
               },
-			  {
+ 			  {
                 hours: "4",
-                minutes: "59",
+                minutes: "45",
                 ampm: "PM"
               },
 			  {
+                hours: "5",
+                minutes: "45",
+                ampm: "PM"
+              },
+ 			  {
                 hours: "7",
-                minutes: "56",
+                minutes: "45",
+                ampm: "PM"
+              },
+			  {
+                hours: "8",
+                minutes: "45",
                 ampm: "PM"
               }
 	        ]
@@ -950,22 +1040,22 @@ $(function() {
 	        monThurs: [
 			  {
                 hours: "8",
-                minutes: "27",
+                minutes: "30",
                 ampm: "AM"
               },
 		      {
-                hours: "8",
-                minutes: "57",
+                hours: "9",
+                minutes: "00",
                 ampm: "AM"
               },
    			  {
                 hours: "4",
-                minutes: "31",
+                minutes: "30",
                 ampm: "PM"
               },
 			  {
                 hours: "5",
-                minutes: "31",
+                minutes: "30",
                 ampm: "PM"
               },
    			  {
@@ -982,22 +1072,32 @@ $(function() {
 	        fri: [
 			  {
                 hours: "8",
-                minutes: "27",
+                minutes: "30",
                 ampm: "AM"
               },
-			  {
-                hours: "8",
-                minutes: "57",
+		      {
+                hours: "9",
+                minutes: "00",
                 ampm: "AM"
               },
-			  {
+ 			  {
                 hours: "4",
-                minutes: "45",
+                minutes: "30",
                 ampm: "PM"
               },
 			  {
+                hours: "5",
+                minutes: "30",
+                ampm: "PM"
+              },
+ 			  {
                 hours: "7",
-                minutes: "44",
+                minutes: "30",
+                ampm: "PM"
+              },
+			  {
+                hours: "8",
+                minutes: "30",
                 ampm: "PM"
               }
 	        ]

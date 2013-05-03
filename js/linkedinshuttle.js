@@ -7,47 +7,43 @@ $(function() {
       map,
       northShuttleLatLng,
       browserSupportFlag = false,
-      northBusMarker, youmarker,
+      northBusMarker1, northBusMarker2, youmarker,
       northStops = [
         {
           name: "Lombard & Pierce",
           description: "Pick-up at SW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "35",
-                ampm: "AM"
-              },
-   			  {
-                hours: "7",
-                minutes: "35",
-                ampm: "PM"
-              },
-			  {
-                hours: "10",
-                minutes: "10",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "35",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "55",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "30",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+		    {
+              hours: "7",
+              minutes: "05",
+              ampm: "AM"
+            },
+   			{
+              hours: "7",
+              minutes: "35",
+              ampm: "AM"
+            },
+			{
+              hours: "6",
+              minutes: "51",
+              ampm: "PM"
+            },
+			{
+	          hours: "7",
+	          minutes: "51",
+	          ampm: "PM"
+	        },
+			{
+              hours: "9",
+              minutes: "26",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "26",
+              ampm: "PM"
+            }
+	      ],
           location: {
             latitude: 37.799295,
             longitude: -122.439421
@@ -55,87 +51,79 @@ $(function() {
         },
         {
           name: "Van Ness & Union",
-          description: "Pick-up at NW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "41",
-                ampm: "AM"
-              },
-   			  {
-                hours: "7",
-                minutes: "27",
-                ampm: "PM"
-              },
-			  {
-                hours: "10",
-                minutes: "04",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-		      {
-                hours: "7",
-                minutes: "41",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "47",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "24",
-                ampm: "PM"
-              }
-	        ]
-	      },
+          description: "Pick-up at SW corner",
+          pickupTime: [
+		    {
+              hours: "7",
+              minutes: "11",
+              ampm: "AM"
+            },
+ 			{
+              hours: "7",
+              minutes: "41",
+              ampm: "AM"
+            },
+			{
+              hours: "6",
+              minutes: "43",
+              ampm: "PM"
+            },
+			{
+	          hours: "7",
+	          minutes: "43",
+	          ampm: "PM"
+	        },
+			{
+              hours: "9",
+              minutes: "20",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "20",
+              ampm: "PM"
+            }
+	      ],
           location: {
-            latitude: 37.79859,
-            longitude: -122.424109
+            latitude: 37.798499,
+            longitude: -122.424112
           }
         },
         {
           name: "Van Ness & Sacramento",
           description: "Pick-up at NW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "45",
-                ampm: "AM"
-              },
-   			  {
-                hours: "7",
-                minutes: "23",
-                ampm: "PM"
-              },
-			  {
-                hours: "10",
-                minutes: "00",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "45",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "43",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "20",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+		    {
+              hours: "7",
+              minutes: "15",
+              ampm: "AM"
+            },
+ 			{
+              hours: "7",
+              minutes: "45",
+              ampm: "AM"
+            },
+			{
+              hours: "6",
+              minutes: "39",
+              ampm: "PM"
+            },
+			{
+	          hours: "7",
+	          minutes: "39",
+	          ampm: "PM"
+	        },
+			{
+              hours: "9",
+              minutes: "17",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "17",
+              ampm: "PM"
+            }
+          ],
           location: {
             latitude: 37.791353,
             longitude: -122.422714
@@ -144,42 +132,38 @@ $(function() {
         {
           name: "Van Ness & Eddy",
           description: "Pick-up at NW coner of Van Ness & Larch. Drop-off at Van Ness & Eddy.",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "49",
-                ampm: "AM"
-              },
-   			  {
-                hours: "7",
-                minutes: "19",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "57",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "49",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "39",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "17",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+		    {
+              hours: "7",
+              minutes: "19",
+              ampm: "AM"
+            },
+ 			{
+              hours: "7",
+              minutes: "49",
+              ampm: "AM"
+            },
+			{
+              hours: "6",
+              minutes: "35",
+              ampm: "PM"
+            },
+			{
+	          hours: "7",
+	          minutes: "35",
+	          ampm: "PM"
+	        },
+			{
+              hours: "9",
+              minutes: "13",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "13",
+              ampm: "PM"
+            }
+          ],
           location: {
             latitude: 37.782495,
             longitude: -122.420887
@@ -188,42 +172,38 @@ $(function() {
         {
           name: "8th & Market",
           description: "Pick-up at SW corner of 8th & Market. Drop-off at 9th & Market.",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "53",
-                ampm: "AM"
-              },
-   			  {
-                hours: "7",
-                minutes: "14",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "53",
-                ampm: "PM"
-               }
-	        ],
-	        fri: [
-		      {
-                hours: "7",
-                minutes: "53",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "34",
-                ampm: "PM"
-              },
-	          {
-                hours: "9",
-                minutes: "13",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+		    {
+              hours: "7",
+              minutes: "23",
+              ampm: "AM"
+            },
+ 			{
+              hours: "7",
+              minutes: "53",
+              ampm: "AM"
+            },
+			{
+              hours: "6",
+              minutes: "30",
+              ampm: "PM"
+            },
+			{
+	          hours: "7",
+	          minutes: "30",
+	          ampm: "PM"
+	        },
+			{
+              hours: "9",
+              minutes: "09",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "09",
+              ampm: "PM"
+            }
+          ],
           location: {
             latitude: 37.7785,
             longitude: -122.41473
@@ -232,42 +212,38 @@ $(function() {
         {
           name: "6th & Bryant",
           description: "",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "59",
-                ampm: "AM"
-              },
-   			  {
-                hours: "7",
-                minutes: "07",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "48",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "59",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "27",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "08",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+		    {
+              hours: "7",
+              minutes: "29",
+              ampm: "AM"
+            },
+ 			{
+              hours: "7",
+              minutes: "59",
+              ampm: "AM"
+            },
+			{
+              hours: "6",
+              minutes: "23",
+              ampm: "PM"
+            },
+			{
+	          hours: "7",
+	          minutes: "23",
+	          ampm: "PM"
+	        },
+			{
+              hours: "9",
+              minutes: "04",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "04",
+              ampm: "PM"
+            }
+          ],
           location: {
             latitude: 37.776061,
             longitude: -122.402686
@@ -276,166 +252,164 @@ $(function() {
         {
           name: "Mountain View",
           description: "Pick-up/drop-off in front of 2025",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "9",
-                minutes: "00",
-                ampm: "AM"
-              },
-   			  {
-                hours: "5",
-                minutes: "59",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "51",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "9",
-                minutes: "00",
-                ampm: "AM"
-              },
- 			  {
-                hours: "5",
-                minutes: "19",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "11",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+		    {
+              hours: "8",
+              minutes: "30",
+              ampm: "AM"
+            },
+ 			{
+              hours: "9",
+              minutes: "00",
+              ampm: "AM"
+            },
+			{
+              hours: "5",
+              minutes: "15",
+              ampm: "PM"
+            },
+			{
+	          hours: "6",
+	          minutes: "15",
+	          ampm: "PM"
+	        },
+			{
+              hours: "8",
+              minutes: "15",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "15",
+              ampm: "PM"
+            }
+          ],
           location: {
             latitude: 37.4233,
             longitude: -122.07334
           }
         },
         {
-          name: "Sunnyvale",
-          description: "Pick-up/drop-off in front of buildings A and B",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "9",
-                minutes: "13",
-                ampm: "AM"
-              },
-   			  {
-                hours: "5",
-                minutes: "45",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "40",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "9",
-                minutes: "13",
-                ampm: "AM"
-              },
- 			  {
-                hours: "5",
-                minutes: "05",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "00",
-                ampm: "PM"
-              }
-	        ]
-          },
+          name: "Sunnyvale Building A",
+          description: "Pick-up/drop-off in front of building A",
+          pickupTime: [
+		    {
+              hours: "8",
+              minutes: "43",
+              ampm: "AM"
+            },
+ 			{
+              hours: "9",
+              minutes: "13",
+              ampm: "AM"
+            },
+			{
+              hours: "5",
+              minutes: "00",
+              ampm: "PM"
+            },
+			{
+	          hours: "6",
+	          minutes: "00",
+	          ampm: "PM"
+	        },
+			{
+              hours: "8",
+              minutes: "00",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "00",
+              ampm: "PM"
+            }
+          ],
           location: {
-            latitude: 37.392242,
-            longitude: -122.031761
+            latitude: 37.392221,
+		    longitude: -122.031402
+          }
+        },
+        {
+          name: "Sunnyvale Building B",
+          description: "Pick-up/drop-off in front of building B",
+          pickupTime: [
+		    {
+              hours: "8",
+              minutes: "45",
+              ampm: "AM"
+            },
+ 			{
+              hours: "9",
+              minutes: "15",
+              ampm: "AM"
+            },
+			{
+              hours: "5",
+              minutes: "02",
+              ampm: "PM"
+            },
+			{
+	          hours: "6",
+	          minutes: "02",
+	          ampm: "PM"
+	        },
+			{
+              hours: "8",
+              minutes: "02",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "02",
+              ampm: "PM"
+            }
+          ],
+          location: {
+            latitude: 37.39462,
+		    longitude: -122.031402
           }
         }
       ],	
 
   // Info for South Shuttle
-      southShuttleLatLng1,
-	  southBusMarker1,
+      southShuttleLatLng1, southShuttleLatLng2,
+	  southBusMarker1, southBusMarker2,
 	  southStops = [
 	    {
 		  name: "Fillmore & California",
 		  description: "Pick-up at SW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "6",
-                minutes: "50",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "20",
-                ampm: "AM"
-              },
-   			  {
-                hours: "6",
-                minutes: "25",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "25",
-                ampm: "PM"
-              },
-   			  {
-                hours: "9",
-                minutes: "06",
-                ampm: "PM"
-              },
-			  {
-                hours: "10",
-                minutes: "06",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "6",
-                minutes: "50",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "20",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "25",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "25",
-                ampm: "PM"
-              },
- 			  {
-                hours: "9",
-                minutes: "06",
-                ampm: "PM"
-              },
-			  {
-                hours: "10",
-                minutes: "06",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+			{
+              hours: "6",
+              minutes: "50",
+              ampm: "AM"
+            },
+		    {
+              hours: "7",
+              minutes: "20",
+              ampm: "AM"
+            },
+   			{
+              hours: "6",
+              minutes: "25",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
+              minutes: "25",
+              ampm: "PM"
+            },
+   			{
+              hours: "9",
+              minutes: "06",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "06",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.788797,
 		    longitude: -122.433925
@@ -444,72 +418,38 @@ $(function() {
 		{
 		  name: "Fillmore & Eddy",
 		  description: "Pick-up at NW corner of Fillmore & Eddy. Drop-off at Fillmore & Turk/Golden Gate.",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "6",
-                minutes: "53",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "23",
-                ampm: "AM"
-              },
-   			  {
-                hours: "6",
-                minutes: "20",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "20",
-                ampm: "PM"
-              },
-   			  {
-                hours: "9",
-                minutes: "02",
-                ampm: "PM"
-              },
-			  {
-                hours: "10",
-                minutes: "02",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "6",
-                minutes: "53",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "23",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "20",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "20",
-                ampm: "PM"
-              },
- 			  {
-                hours: "9",
-                minutes: "02",
-                ampm: "PM"
-              },
-			  {
-                hours: "10",
-                minutes: "02",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+			{
+              hours: "6",
+              minutes: "53",
+              ampm: "AM"
+            },
+		    {
+              hours: "7",
+              minutes: "23",
+              ampm: "AM"
+            },
+   			{
+              hours: "6",
+              minutes: "20",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
+              minutes: "20",
+              ampm: "PM"
+            },
+   			{
+              hours: "9",
+              minutes: "02",
+              ampm: "PM"
+            },
+			{
+              hours: "10",
+              minutes: "02",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.781471,
 		    longitude: -122.432432
@@ -518,72 +458,38 @@ $(function() {
 		{
 		  name: "Divisadero & Grove",
 	      description: "Pick-up at NW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "6",
-                minutes: "58",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "28",
-                ampm: "AM"
-              },
-   			  {
-                hours: "6",
-                minutes: "13",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "13",
-                ampm: "PM"
-              },
-   			  {
-                hours: "8",
-                minutes: "55",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "55",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "6",
-                minutes: "58",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "28",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "13",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "13",
-                ampm: "PM"
-              },
- 			  {
-                hours: "8",
-                minutes: "55",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "55",
-                ampm: "PM"
+          pickupTime: [
+			{
+              hours: "6",
+              minutes: "58",
+              ampm: "AM"
+            },
+		    {
+              hours: "7",
+              minutes: "28",
+              ampm: "AM"
+            },
+   			{
+              hours: "6",
+              minutes: "13",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
+              minutes: "13",
+              ampm: "PM"
+            },
+   			{
+              hours: "8",
+              minutes: "55",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "55",
+              ampm: "PM"
             }
-	        ]
-          },
+          ],
 		  location: {
 		    latitude: 37.776002,
 			longitude: -122.438179
@@ -592,72 +498,38 @@ $(function() {
 		{
 		  name: "Divisadero & Haight",
 		  description: "Pick-up at SW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "00",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "30",
-                ampm: "AM"
-              },
-   			  {
-                hours: "6",
-                minutes: "10",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "10",
-                ampm: "PM"
-              },
-   			  {
-                hours: "8",
-                minutes: "54",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "54",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "00",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "30",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "10",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "10",
-                ampm: "PM"
-              },
- 			  {
-                hours: "8",
-                minutes: "54",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "54",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+			{
+              hours: "7",
+              minutes: "00",
+              ampm: "AM"
+            },
+		    {
+              hours: "7",
+              minutes: "30",
+              ampm: "AM"
+            },
+   			{
+              hours: "6",
+              minutes: "10",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
+              minutes: "10",
+              ampm: "PM"
+            },
+   			{
+              hours: "8",
+              minutes: "54",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "54",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.771214,
 		    longitude: -122.437187
@@ -666,72 +538,38 @@ $(function() {
 		{
 		  name: "Castro & Market",
 		  description: "Pick-up at SW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "04",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "34",
-                ampm: "AM"
-              },
-   			  {
-                hours: "6",
-                minutes: "06",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "06",
-                ampm: "PM"
-              },
-   			  {
-                hours: "8",
-                minutes: "50",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "50",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "04",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "34",
-                ampm: "AM"
-              },
- 			  {
-                hours: "6",
-                minutes: "06",
-                ampm: "PM"
-              },
-			  {
-                hours: "7",
-                minutes: "06",
-                ampm: "PM"
-              },
- 			  {
-                hours: "8",
-                minutes: "50",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "50",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+			{
+              hours: "7",
+              minutes: "04",
+              ampm: "AM"
+            },
+		    {
+              hours: "7",
+              minutes: "34",
+              ampm: "AM"
+            },
+   			{
+              hours: "6",
+              minutes: "06",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
+              minutes: "06",
+              ampm: "PM"
+            },
+   			{
+              hours: "8",
+              minutes: "50",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "50",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.762127,
 		    longitude: -122.435167
@@ -740,72 +578,38 @@ $(function() {
 		{
 		  name: "24th & Noe",
 		  description: "Pick-up at SW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "10",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "40",
-                ampm: "AM"
-              },
-   			  {
-                hours: "5",
-                minutes: "59",
-                ampm: "PM"
-              },
-			  {
-                hours: "6",
-                minutes: "59",
-                ampm: "PM"
-              },
-   			  {
-                hours: "8",
-                minutes: "44",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "44",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
+          pickupTime: [
+			{
               hours: "7",
               minutes: "10",
               ampm: "AM"
             },
-		      {
-                hours: "7",
-                minutes: "40",
-                ampm: "AM"
-              },
- 			  {
-                hours: "5",
-                minutes: "59",
-                ampm: "PM"
-              },
-			  {
-                hours: "6",
-                minutes: "59",
-                ampm: "PM"
-              },
- 			  {
-                hours: "8",
-                minutes: "44",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "44",
-                ampm: "PM"
-              }
-	        ]
-          },
+		    {
+              hours: "7",
+              minutes: "40",
+              ampm: "AM"
+            },
+   			{
+              hours: "5",
+              minutes: "59",
+              ampm: "PM"
+            },
+			{
+              hours: "6",
+              minutes: "59",
+              ampm: "PM"
+            },
+   		    {
+              hours: "8",
+              minutes: "44",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "44",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.751386,
 		    longitude: -122.431978
@@ -814,72 +618,38 @@ $(function() {
 	    {
 		  name: "24th & Mission",
 		  description: "Pick-up at SW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "15",
-                ampm: "AM"
-              },
-			  {
-                hours: "7",
-                minutes: "45",
-                ampm: "AM"
-              },
-   			  {
-                hours: "5",
-                minutes: "53",
-                ampm: "PM"
-              },
-			  {
-                hours: "6",
-                minutes: "53",
-                ampm: "PM"
-              },
-   			  {
-                hours: "8",
-                minutes: "39",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "39",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "15",
-                ampm: "AM"
-              },
-			  {
-                hours: "7",
-                minutes: "45",
-                ampm: "AM"
-              },
- 			  {
-                hours: "5",
-                minutes: "53",
-                ampm: "PM"
-              },
-			  {
-                hours: "6",
-                minutes: "53",
-                ampm: "PM"
-              },
- 			  {
-                hours: "8",
-                minutes: "39",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "39",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+			{
+              hours: "7",
+              minutes: "15",
+              ampm: "AM"
+            },
+			{
+              hours: "7",
+              minutes: "45",
+              ampm: "AM"
+            },
+   			{
+              hours: "5",
+              minutes: "53",
+              ampm: "PM"
+            },
+			{
+              hours: "6",
+              minutes: "53",
+              ampm: "PM"
+            },
+   			{
+              hours: "8",
+              minutes: "39",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "39",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.752783,
 		    longitude: -122.418406
@@ -888,72 +658,38 @@ $(function() {
 		{
 		  name: "Cesar Chavez & Folsom",
 		  description: "Pick-up at SW corner",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "7",
-                minutes: "18",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "48",
-                ampm: "AM"
-              },
-   			  {
-                hours: "5",
-                minutes: "49",
-                ampm: "PM"
-              },
-			  {
-                hours: "6",
-                minutes: "49",
-                ampm: "PM"
-              },
-   			  {
-                hours: "8",
-                minutes: "36",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "36",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "7",
-                minutes: "18",
-                ampm: "AM"
-              },
-		      {
-                hours: "7",
-                minutes: "48",
-                ampm: "AM"
-              },
- 			  {
-                hours: "5",
-                minutes: "49",
-                ampm: "PM"
-              },
-			  {
-                hours: "6",
-                minutes: "49",
-                ampm: "PM"
-              },
- 			  {
-                hours: "8",
-                minutes: "36",
-                ampm: "PM"
-              },
-			  {
-                hours: "9",
-                minutes: "36",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+			{
+              hours: "7",
+              minutes: "18",
+              ampm: "AM"
+            },
+		    {
+              hours: "7",
+              minutes: "48",
+              ampm: "AM"
+            },
+   			{
+              hours: "5",
+              minutes: "49",
+              ampm: "PM"
+            },
+			{
+              hours: "6",
+              minutes: "49",
+              ampm: "PM"
+            },
+   			{
+              hours: "8",
+              minutes: "36",
+              ampm: "PM"
+            },
+			{
+              hours: "9",
+              minutes: "36",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.748146,
 		    longitude: -122.413855
@@ -962,154 +698,124 @@ $(function() {
 		{
 		  name: "Mountain View",
 		  description: "Pick-up/drop-off in front of 2025",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "8",
-                minutes: "15",
-                ampm: "AM"
-              },
-		      {
-                hours: "8",
-                minutes: "45",
-                ampm: "AM"
-              },
-   			  {
-                hours: "4",
-                minutes: "45",
-                ampm: "PM"
-              },
-			  {
-                hours: "5",
-                minutes: "45",
-                ampm: "PM"
-              },
-   			  {
-                hours: "7",
-                minutes: "45",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "45",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "8",
-                minutes: "15",
-                ampm: "AM"
-              },
-		      {
-                hours: "8",
-                minutes: "45",
-                ampm: "AM"
-              },
- 			  {
-                hours: "4",
-                minutes: "45",
-                ampm: "PM"
-              },
-			  {
-                hours: "5",
-                minutes: "45",
-                ampm: "PM"
-              },
- 			  {
-                hours: "7",
-                minutes: "45",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "45",
-                ampm: "PM"
-              }
-	        ]
-          },
+          pickupTime: [
+			{
+              hours: "8",
+              minutes: "15",
+              ampm: "AM"
+            },
+		    {
+              hours: "8",
+              minutes: "45",
+              ampm: "AM"
+            },
+   			{
+              hours: "4",
+              minutes: "45",
+              ampm: "PM"
+            },
+			{
+              hours: "5",
+              minutes: "45",
+              ampm: "PM"
+            },
+   			{
+              hours: "7",
+              minutes: "45",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
+              minutes: "45",
+              ampm: "PM"
+            }
+          ],
 		  location: {
 		    latitude: 37.423547,
 		    longitude: -122.073146
 		  }
 		},
 		{
-		  name: "Sunnyvale",
-		  description: "Pick-up/drop-off in front of buildings A and B",
-          pickupTime: {
-	        monThurs: [
-			  {
-                hours: "8",
-                minutes: "30",
-                ampm: "AM"
-              },
-		      {
-                hours: "9",
-                minutes: "00",
-                ampm: "AM"
-              },
-   			  {
-                hours: "4",
-                minutes: "30",
-                ampm: "PM"
-              },
-			  {
-                hours: "5",
-                minutes: "30",
-                ampm: "PM"
-              },
-   			  {
-                hours: "7",
-                minutes: "30",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "30",
-                ampm: "PM"
-              }
-	        ],
-	        fri: [
-			  {
-                hours: "8",
-                minutes: "30",
-                ampm: "AM"
-              },
-		      {
-                hours: "9",
-                minutes: "00",
-                ampm: "AM"
-              },
- 			  {
-                hours: "4",
-                minutes: "30",
-                ampm: "PM"
-              },
-			  {
-                hours: "5",
-                minutes: "30",
-                ampm: "PM"
-              },
- 			  {
-                hours: "7",
-                minutes: "30",
-                ampm: "PM"
-              },
-			  {
-                hours: "8",
-                minutes: "30",
-                ampm: "PM"
-              }
-	        ]
-          },
+		  name: "Sunnyvale Building A",
+		  description: "Pick-up/drop-off in front of building A",
+          pickupTime: [
+			{
+              hours: "8",
+              minutes: "27",
+              ampm: "AM"
+            },
+		    {
+              hours: "9",
+              minutes: "57",
+              ampm: "AM"
+            },
+   			{
+              hours: "4",
+              minutes: "30",
+              ampm: "PM"
+            },
+			{
+              hours: "5",
+              minutes: "30",
+              ampm: "PM"
+            },
+   			{
+              hours: "7",
+              minutes: "30",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
+              minutes: "30",
+              ampm: "PM"
+            }
+          ],
 		  location: {
-		    latitude: 37.392865,
-		    longitude: -122.031496
+		    latitude: 37.39214,
+		    longitude: -122.031826
+		  }
+		},
+		{
+		  name: "Sunnyvale Building B",
+		  description: "Pick-up/drop-off in front of building B",
+          pickupTime: [
+			{
+              hours: "8",
+              minutes: "30",
+              ampm: "AM"
+            },
+		    {
+              hours: "9",
+              minutes: "00",
+              ampm: "AM"
+            },
+   			{
+              hours: "4",
+              minutes: "32",
+              ampm: "PM"
+            },
+			{
+              hours: "5",
+              minutes: "32",
+              ampm: "PM"
+            },
+   			{
+              hours: "7",
+              minutes: "32",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
+              minutes: "32",
+              ampm: "PM"
+            }
+          ],
+		  location: {
+		    latitude: 37.394403,
+		    longitude: -122.031429
 		  }
 		}
       ],
-      southShuttleLatLng2,
-	  southBusMarker2,
 
   extractDistanceData = function(data) {
     if (data && data.rows && data.rows[0] && data.rows[0].elements && data.rows[0].elements[0]) {
@@ -1190,7 +896,7 @@ $(function() {
     shuttleInfoElem.children('ul').show();
   },
 
-  drawMap = function(northLatitude, northLongitude, southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr) {
+  drawMap = function(northLatitude1, northLongitude1, northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr) {
 		
     map = new google.maps.Map(document.getElementById("map_canvas"),{
       zoom: 13,
@@ -1200,11 +906,19 @@ $(function() {
       streetViewControl: false
     });
 
-    northBusMarker = new google.maps.Marker({
-	  position: new google.maps.LatLng(northLatitude, northLongitude),
+    northBusMarker1 = new google.maps.Marker({
+	  position: new google.maps.LatLng(northLatitude1, northLongitude1),
 	  map: map,
-	  icon: new google.maps.MarkerImage("img/northbusicon.png"),
-	  title: "Current location of SF Commuter Bus - North",
+	  icon: new google.maps.MarkerImage("img/northbusicon1.png"),
+	  title: "Current location of SF Commuter Bus - North 1",
+	  animation: google.maps.Animation.DROP
+	});
+	
+	northBusMarker2 = new google.maps.Marker({
+	  position: new google.maps.LatLng(northLatitude2, northLongitude2),
+	  map: map,
+	  icon: new google.maps.MarkerImage("img/northbusicon2.png"),
+	  title: "Current location of SF Commuter Bus - North 2",
 	  animation: google.maps.Animation.DROP
 	});
 	
@@ -1232,26 +946,30 @@ $(function() {
 
   handleTrackingData = function(attr) {
     // Have to proxy Google Distance Matrix API since it doesn't support JSONP
-	northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
+	northShuttleLatLng1 = attr.north1.Latitude + ',' + attr.north1.Longitude;
+	northShuttleLatLng2 = attr.north2.Latitude + ',' + attr.north2.Longitude;
 	southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
-	southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude; // TODO
+	southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
 	// GK: commented this to remove dependency on server
 	//setupStopChooser();
 	
-    var northLatitude = attr.north.Latitude;
-    var northLongitude = attr.north.Longitude;
+    var northLatitude1 = attr.north1.Latitude;
+    var northLongitude1 = attr.north1.Longitude;
+    var northLatitude2 = attr.north2.Latitude;
+    var northLongitude2 = attr.north2.Longitude;
 	var southLatitude1 = attr.south1.Latitude;
     var southLongitude1 = attr.south1.Longitude;
 	var southLatitude2 = attr.south2.Latitude;
 	var southLongitude2 = attr.south2.Longitude;
 
-	shuttleInfoElem.find('#northShuttle1 .speed').prepend($('<span>').text("North Bus: " + attr.north.AvgSpeed).addClass('value')).css('display', 'inline');
+	shuttleInfoElem.find('#northShuttle1 .speed').prepend($('<span>').text("North Bus 1: " + attr.north1.AvgSpeed).addClass('value')).css('display', 'inline');
+	shuttleInfoElem.find('#northShuttle2 .speed').prepend($('<span>').text("North Bus 2: " + attr.north2.AvgSpeed).addClass('value')).css('display', 'inline');
 	shuttleInfoElem.find('#southShuttle1 .speed').prepend($('<span>').text("South Bus 1: " + attr.south1.AvgSpeed).addClass('value')).css('display', 'inline');	
 	shuttleInfoElem.find('#southShuttle2 .speed').prepend($('<span>').text("South Bus 2: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	
 	
 	shuttleInfoElem.children('.thinking').hide();
     shuttleInfoElem.children('ul').show();
-	drawMap(northLatitude, northLongitude, southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr);
+	drawMap(northLatitude1, northLongitude1, northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr);
   },
 
   centerMap = function(lat, longitude) {
@@ -1269,14 +987,7 @@ $(function() {
   },
 
   getPickupTimes = function(stop) {
-	var today = new Date();
-	var dayOfWeek = today.getDay();
-	var times;
-	if(dayOfWeek == 5) {
-		times = stop.pickupTime.fri;
-	} else {
-		times = stop.pickupTime.monThurs;
-	}
+	var times = stop.pickupTime
 
 	if(stop.name == "Mountain View" || stop.name == "Sunnyvale") {
 		var southBoundTimes = "Drop Off Times: ";
@@ -1405,13 +1116,19 @@ $(function() {
       }
     });
 
-    $("#northShuttleLoc").click(function() {
-      if (northBusMarker) {
-        centerMap(northBusMarker.position.lat(), northBusMarker.position.lng());
+    $("#northShuttleLoc1").click(function() {
+      if (northBusMarker1) {
+        centerMap(northBusMarker1.position.lat(), northBusMarker1.position.lng());
       }
     });
 
-    $("#southShuttleLoc").click(function() {
+    $("#northShuttleLoc2").click(function() {
+      if (northBusMarker2) {
+        centerMap(northBusMarker2.position.lat(), northBusMarker2.position.lng());
+      }
+    });
+
+    $("#southShuttleLoc1").click(function() {
       if (southBusMarker1) {
         centerMap(southBusMarker1.position.lat(), southBusMarker1.position.lng());
       }
@@ -1444,14 +1161,17 @@ $(function() {
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
 	      var attr = {};
+		  attr.north1 = data.features[3].attributes;
+		  attr.north2 = data.features[0].attributes;
           attr.south1 = data.features[2].attributes;
 		  attr.south2 = data.features[1].attributes;
-		  attr.north = data.features[0].attributes;
 
-          northShuttleLatLng = attr.north.Latitude + ',' + attr.north.Longitude;
+          northShuttleLatLng1 = attr.north1.Latitude + ',' + attr.north1.Longitude;
+          northShuttleLatLng2 = attr.north2.Latitude + ',' + attr.north2.Longitude;
 		  southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
 		  southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
-          northBusMarker.setPosition(new google.maps.LatLng(attr.north.Latitude, attr.north.Longitude));
+          northBusMarker1.setPosition(new google.maps.LatLng(attr.north1.Latitude, attr.north1.Longitude));
+          northBusMarker2.setPosition(new google.maps.LatLng(attr.north2.Latitude, attr.north2.Longitude));
           southBusMarker1.setPosition(new google.maps.LatLng(attr.south1.Latitude, attr.south1.Longitude));
           southBusMarker2.setPosition(new google.maps.LatLng(attr.south2.Latitude, attr.south2.Longitude));
         }      
@@ -1478,9 +1198,11 @@ $(function() {
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
 	      var attr = {};
+		  attr.north1 = data.features[3].attributes;
+		  attr.north2 = data.features[0].attributes;
           attr.south1 = data.features[2].attributes;
 		  attr.south2 = data.features[1].attributes;
-		  attr.north = data.features[0].attributes;
+		
           handleTrackingData(attr);
           $("#touch-init").remove();
           $("html").removeClass("initial-bootstrapping");

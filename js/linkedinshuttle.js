@@ -131,7 +131,7 @@ $(function() {
         },
         {
           name: "Van Ness & Eddy",
-          description: "Pick-up at NW coner of Van Ness & Larch. Drop-off at Van Ness & Eddy.",
+          description: "Pick-up at NW corner of Van Ness & Larch. Drop-off at Van Ness & Eddy.",
           pickupTime: [
 		    {
               hours: "7",
@@ -211,7 +211,7 @@ $(function() {
         },
         {
           name: "6th & Bryant",
-          description: "",
+          description: "Pick-up at NW corner",
           pickupTime: [
 		    {
               hours: "7",
@@ -656,43 +656,43 @@ $(function() {
 		  }
 		},
 		{
-		  name: "Cesar Chavez & Folsom",
-		  description: "Pick-up at SW corner",
+		  name: "Florida & Cesar Chavez",
+		  description: "Pick-up at SW corner of Florida & Cesar Chavez. Drop-off at Bryant & Cesar Chavez.",
           pickupTime: [
 			{
               hours: "7",
-              minutes: "18",
+              minutes: "20",
               ampm: "AM"
             },
 		    {
               hours: "7",
-              minutes: "48",
+              minutes: "50",
               ampm: "AM"
             },
    			{
               hours: "5",
-              minutes: "49",
+              minutes: "48",
               ampm: "PM"
             },
 			{
               hours: "6",
-              minutes: "49",
+              minutes: "48",
               ampm: "PM"
             },
    			{
               hours: "8",
-              minutes: "36",
+              minutes: "35",
               ampm: "PM"
             },
 			{
               hours: "9",
-              minutes: "36",
+              minutes: "35",
               ampm: "PM"
             }
           ],
 		  location: {
-		    latitude: 37.748146,
-		    longitude: -122.413855
+		    latitude: 37.748239,
+		    longitude: -122.409821
 		  }
 		},
 		{
@@ -741,12 +741,12 @@ $(function() {
           pickupTime: [
 			{
               hours: "8",
-              minutes: "27",
+              minutes: "28",
               ampm: "AM"
             },
 		    {
               hours: "9",
-              minutes: "57",
+              minutes: "58",
               ampm: "AM"
             },
    			{

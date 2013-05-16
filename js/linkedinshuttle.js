@@ -1030,7 +1030,7 @@ $(function() {
           map: map,
           title: currStop.name
         });
-        addInfoWindow(marker, currStop.name + "<br/>" + getPickupTimes(currStop));
+        addInfoWindow(marker, currStop.name + "<br/>"+ currStop.description + "<br/>" + getPickupTimes(currStop));
       }
     }
   },

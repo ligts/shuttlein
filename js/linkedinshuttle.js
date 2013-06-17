@@ -372,8 +372,8 @@ $(function() {
       ],	
 
   // Info for South Shuttle
-      southShuttleLatLng1, southShuttleLatLng2,
-	  southBusMarker1, southBusMarker2,
+      southShuttleLatLng1, southShuttleLatLng2, southShuttleLatLng3,
+	  southBusMarker1, southBusMarker2, southBusMarker3,
 	  southStops = [
 	    {
 		  name: "Fillmore & California",
@@ -389,6 +389,11 @@ $(function() {
               minutes: "20",
               ampm: "AM"
             },
+			{
+              hours: "8",
+              minutes: "35",
+              ampm: "AM"
+            },
    			{
               hours: "6",
               minutes: "25",
@@ -396,6 +401,11 @@ $(function() {
             },
 			{
               hours: "7",
+              minutes: "25",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
               minutes: "25",
               ampm: "PM"
             },
@@ -429,6 +439,11 @@ $(function() {
               minutes: "23",
               ampm: "AM"
             },
+			{
+              hours: "8",
+              minutes: "38",
+              ampm: "AM"
+            },
    			{
               hours: "6",
               minutes: "20",
@@ -436,6 +451,11 @@ $(function() {
             },
 			{
               hours: "7",
+              minutes: "20",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
               minutes: "20",
               ampm: "PM"
             },
@@ -469,6 +489,11 @@ $(function() {
               minutes: "28",
               ampm: "AM"
             },
+			{
+              hours: "8",
+              minutes: "43",
+              ampm: "AM"
+            },
    			{
               hours: "6",
               minutes: "13",
@@ -476,6 +501,11 @@ $(function() {
             },
 			{
               hours: "7",
+              minutes: "13",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
               minutes: "13",
               ampm: "PM"
             },
@@ -509,6 +539,11 @@ $(function() {
               minutes: "30",
               ampm: "AM"
             },
+			{
+              hours: "8",
+              minutes: "45",
+              ampm: "AM"
+            },
    			{
               hours: "6",
               minutes: "10",
@@ -516,6 +551,11 @@ $(function() {
             },
 			{
               hours: "7",
+              minutes: "10",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
               minutes: "10",
               ampm: "PM"
             },
@@ -549,6 +589,11 @@ $(function() {
               minutes: "34",
               ampm: "AM"
             },
+			{
+              hours: "8",
+              minutes: "49",
+              ampm: "AM"
+            },
    			{
               hours: "6",
               minutes: "06",
@@ -556,6 +601,11 @@ $(function() {
             },
 			{
               hours: "7",
+              minutes: "06",
+              ampm: "PM"
+            },
+			{
+              hours: "8",
               minutes: "06",
               ampm: "PM"
             },
@@ -589,6 +639,11 @@ $(function() {
               minutes: "40",
               ampm: "AM"
             },
+			{
+              hours: "8",
+              minutes: "55",
+              ampm: "AM"
+            },
    			{
               hours: "5",
               minutes: "59",
@@ -596,6 +651,11 @@ $(function() {
             },
 			{
               hours: "6",
+              minutes: "59",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
               minutes: "59",
               ampm: "PM"
             },
@@ -629,6 +689,11 @@ $(function() {
               minutes: "45",
               ampm: "AM"
             },
+			{
+              hours: "9",
+              minutes: "00",
+              ampm: "AM"
+            },
    			{
               hours: "5",
               minutes: "53",
@@ -636,6 +701,11 @@ $(function() {
             },
 			{
               hours: "6",
+              minutes: "53",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
               minutes: "53",
               ampm: "PM"
             },
@@ -669,6 +739,11 @@ $(function() {
               minutes: "50",
               ampm: "AM"
             },
+			{
+              hours: "9",
+              minutes: "05",
+              ampm: "AM"
+            },
    			{
               hours: "5",
               minutes: "48",
@@ -676,6 +751,11 @@ $(function() {
             },
 			{
               hours: "6",
+              minutes: "48",
+              ampm: "PM"
+            },
+			{
+              hours: "7",
               minutes: "48",
               ampm: "PM"
             },
@@ -709,6 +789,11 @@ $(function() {
               minutes: "45",
               ampm: "AM"
             },
+			{
+              hours: "10",
+              minutes: "00",
+              ampm: "AM"
+            },
    			{
               hours: "4",
               minutes: "45",
@@ -716,6 +801,11 @@ $(function() {
             },
 			{
               hours: "5",
+              minutes: "45",
+              ampm: "PM"
+            },
+			{
+              hours: "6",
               minutes: "45",
               ampm: "PM"
             },
@@ -745,8 +835,13 @@ $(function() {
               ampm: "AM"
             },
 		    {
-              hours: "9",
+              hours: "8",
               minutes: "58",
+              ampm: "AM"
+            },
+			{
+              hours: "10",
+              minutes: "12",
               ampm: "AM"
             },
    			{
@@ -756,6 +851,11 @@ $(function() {
             },
 			{
               hours: "5",
+              minutes: "30",
+              ampm: "PM"
+            },
+			{
+              hours: "6",
               minutes: "30",
               ampm: "PM"
             },
@@ -789,6 +889,11 @@ $(function() {
               minutes: "00",
               ampm: "AM"
             },
+			{
+              hours: "10",
+              minutes: "15",
+              ampm: "AM"
+            },
    			{
               hours: "4",
               minutes: "32",
@@ -796,6 +901,11 @@ $(function() {
             },
 			{
               hours: "5",
+              minutes: "32",
+              ampm: "PM"
+            },
+			{
+              hours: "6",
               minutes: "32",
               ampm: "PM"
             },
@@ -896,7 +1006,7 @@ $(function() {
     shuttleInfoElem.children('ul').show();
   },
 
-  drawMap = function(northLatitude1, northLongitude1, northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr) {
+  drawMap = function(northLatitude1, northLongitude1, northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude2, southLongitude2, southLatitude3, southLongitude3, attr) {
 		
     map = new google.maps.Map(document.getElementById("map_canvas"),{
       zoom: 13,
@@ -939,6 +1049,15 @@ $(function() {
       animation: google.maps.Animation.DROP
     });
 	//addInfoWindow(southBusMarker2, attr.south2.AvgSpeed);
+	
+	southBusMarker3 = new google.maps.Marker({
+      position: new google.maps.LatLng(southLatitude3, southLongitude3),
+      map: map,
+      icon: new google.maps.MarkerImage("img/southbusicon3.png"),
+      title: "Current location of SF Commuter Bus - South 3",
+      animation: google.maps.Animation.DROP
+    });
+	//addInfoWindow(southBusMarker2, attr.south3.AvgSpeed);
 
     addStops();
     addYou();
@@ -950,6 +1069,7 @@ $(function() {
 	northShuttleLatLng2 = attr.north2.Latitude + ',' + attr.north2.Longitude;
 	southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
 	southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
+	southShuttleLatLng3 = attr.south3.Latitude + ',' + attr.south3.Longitude;
 	// GK: commented this to remove dependency on server
 	//setupStopChooser();
 	
@@ -961,15 +1081,18 @@ $(function() {
     var southLongitude1 = attr.south1.Longitude;
 	var southLatitude2 = attr.south2.Latitude;
 	var southLongitude2 = attr.south2.Longitude;
+	var southLatitude3 = attr.south3.Latitude;
+	var southLongitude3 = attr.south3.Longitude;
 
 	shuttleInfoElem.find('#northShuttle1 .speed').prepend($('<span>').text("North Bus 1: " + attr.north1.AvgSpeed).addClass('value')).css('display', 'inline');
 	shuttleInfoElem.find('#northShuttle2 .speed').prepend($('<span>').text("North Bus 2: " + attr.north2.AvgSpeed).addClass('value')).css('display', 'inline');
 	shuttleInfoElem.find('#southShuttle1 .speed').prepend($('<span>').text("South Bus 1: " + attr.south1.AvgSpeed).addClass('value')).css('display', 'inline');	
 	shuttleInfoElem.find('#southShuttle2 .speed').prepend($('<span>').text("South Bus 2: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	
+	shuttleInfoElem.find('#southShuttle3 .speed').prepend($('<span>').text("South Bus 3: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	
 	
 	shuttleInfoElem.children('.thinking').hide();
     shuttleInfoElem.children('ul').show();
-	drawMap(northLatitude1, northLongitude1, northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude2, southLongitude2, attr);
+	drawMap(northLatitude1, northLongitude1, northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude2, southLongitude2, southLatitude3, southLongitude3, attr);
   },
 
   centerMap = function(lat, longitude) {
@@ -1140,6 +1263,12 @@ $(function() {
       }
     });
 
+    $("#southShuttleLoc3").click(function() {
+      if (southBusMarker3) {
+        centerMap(southBusMarker3.position.lat(), southBusMarker3.position.lng());
+      }
+    });
+
     $("#refresh").click(function() {
       $('#stopChooser').trigger('change');
       updateShuttleLocation();
@@ -1160,20 +1289,28 @@ $(function() {
       dataType: 'jsonp',
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
+	      //vehicle label B-484 = north1
+		  //vehicle label 13567 = north2
+		  //vehicle label B-483 = south1
+		  //vehicle label B-125 = south2
+		  //vehicle label B-131 = south3
 	      var attr = {};
-		  attr.north1 = data.features[3].attributes;
+		  attr.north1 = data.features[4].attributes;
 		  attr.north2 = data.features[0].attributes;
-          attr.south1 = data.features[2].attributes;
+          attr.south1 = data.features[3].attributes;
 		  attr.south2 = data.features[1].attributes;
+		  attr.south3 = data.features[2].attributes;
 
           northShuttleLatLng1 = attr.north1.Latitude + ',' + attr.north1.Longitude;
           northShuttleLatLng2 = attr.north2.Latitude + ',' + attr.north2.Longitude;
 		  southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
 		  southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
+		  southShuttleLatLng3 = attr.south3.Latitude + ',' + attr.south3.Longitude;
           northBusMarker1.setPosition(new google.maps.LatLng(attr.north1.Latitude, attr.north1.Longitude));
           northBusMarker2.setPosition(new google.maps.LatLng(attr.north2.Latitude, attr.north2.Longitude));
           southBusMarker1.setPosition(new google.maps.LatLng(attr.south1.Latitude, attr.south1.Longitude));
           southBusMarker2.setPosition(new google.maps.LatLng(attr.south2.Latitude, attr.south2.Longitude));
+          southBusMarker3.setPosition(new google.maps.LatLng(attr.south3.Latitude, attr.south3.Longitude));
         }      
       }
     });
@@ -1197,11 +1334,17 @@ $(function() {
       dataType: 'jsonp',
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
+	      //vehicle label B-484 = north1
+		  //vehicle label 13567 = north2
+		  //vehicle label B-483 = south1
+		  //vehicle label B-125 = south2
+		  //vehicle label B-131 = south3
 	      var attr = {};
-		  attr.north1 = data.features[3].attributes;
+		  attr.north1 = data.features[4].attributes;
 		  attr.north2 = data.features[0].attributes;
-          attr.south1 = data.features[2].attributes;
+          attr.south1 = data.features[3].attributes;
 		  attr.south2 = data.features[1].attributes;
+		  attr.south3 = data.features[2].attributes;
 		
           handleTrackingData(attr);
           $("#touch-init").remove();

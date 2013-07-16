@@ -391,7 +391,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "35",
+              minutes: "20",
               ampm: "AM"
             },
    			{
@@ -441,7 +441,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "38",
+              minutes: "23",
               ampm: "AM"
             },
    			{
@@ -491,7 +491,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "43",
+              minutes: "28",
               ampm: "AM"
             },
    			{
@@ -541,7 +541,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "45",
+              minutes: "30",
               ampm: "AM"
             },
    			{
@@ -591,7 +591,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "49",
+              minutes: "34",
               ampm: "AM"
             },
    			{
@@ -641,7 +641,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "55",
+              minutes: "40",
               ampm: "AM"
             },
    			{
@@ -690,8 +690,8 @@ $(function() {
               ampm: "AM"
             },
 			{
-              hours: "9",
-              minutes: "00",
+              hours: "8",
+              minutes: "45",
               ampm: "AM"
             },
    			{
@@ -740,8 +740,8 @@ $(function() {
               ampm: "AM"
             },
 			{
-              hours: "9",
-              minutes: "05",
+              hours: "8",
+              minutes: "50",
               ampm: "AM"
             },
    			{
@@ -1057,7 +1057,7 @@ $(function() {
       title: "Current location of SF Commuter Bus - South 3",
       animation: google.maps.Animation.DROP
     });
-	//addInfoWindow(southBusMarker2, attr.south3.AvgSpeed);
+	//addInfoWindow(southBusMarker3, attr.south3.AvgSpeed);
 
     addStops();
     addYou();
@@ -1084,11 +1084,11 @@ $(function() {
 	var southLatitude3 = attr.south3.Latitude;
 	var southLongitude3 = attr.south3.Longitude;
 
-	shuttleInfoElem.find('#northShuttle1 .speed').prepend($('<span>').text("North Bus 1: " + attr.north1.AvgSpeed).addClass('value')).css('display', 'inline');
-	shuttleInfoElem.find('#northShuttle2 .speed').prepend($('<span>').text("North Bus 2: " + attr.north2.AvgSpeed).addClass('value')).css('display', 'inline');
-	shuttleInfoElem.find('#southShuttle1 .speed').prepend($('<span>').text("South Bus 1: " + attr.south1.AvgSpeed).addClass('value')).css('display', 'inline');	
-	shuttleInfoElem.find('#southShuttle2 .speed').prepend($('<span>').text("South Bus 2: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	
-	shuttleInfoElem.find('#southShuttle3 .speed').prepend($('<span>').text("South Bus 3: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	
+	shuttleInfoElem.find('#northShuttle1 .speed').prepend($('<span>').text(attr.north1.AvgSpeed).addClass('value')).css('display', 'inline');
+	shuttleInfoElem.find('#northShuttle2 .speed').prepend($('<span>').text(attr.north2.AvgSpeed).addClass('value')).css('display', 'inline');
+	shuttleInfoElem.find('#southShuttle1 .speed').prepend($('<span>').text(attr.south1.AvgSpeed).addClass('value')).css('display', 'inline');	
+	shuttleInfoElem.find('#southShuttle2 .speed').prepend($('<span>').text(attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	
+	shuttleInfoElem.find('#southShuttle3 .speed').prepend($('<span>').text(attr.south3.AvgSpeed).addClass('value')).css('display', 'inline');	
 	
 	shuttleInfoElem.children('.thinking').hide();
     shuttleInfoElem.children('ul').show();
@@ -1157,6 +1157,8 @@ $(function() {
       }
     }
   },
+
+	addInfoWindow(marker, )
 
   addYou = function() {
     if (navigator.geolocation) {
@@ -1273,6 +1275,12 @@ $(function() {
       $('#stopChooser').trigger('change');
       updateShuttleLocation();
     });
+
+    $("#help").click(function() {
+      if (help) {
+				addInfoWindow
+			}
+    });
   },
 
   setupPolling = function() {
@@ -1289,7 +1297,7 @@ $(function() {
       dataType: 'jsonp',
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
-	      //vehicle label B-484 = north1
+	    //vehicle label B-484 = north1
 		  //vehicle label 13567 = north2
 		  //vehicle label B-483 = south1
 		  //vehicle label B-125 = south2
@@ -1297,15 +1305,15 @@ $(function() {
 	      var attr = {};
 		  attr.north1 = data.features[4].attributes;
 		  attr.north2 = data.features[0].attributes;
-          attr.south1 = data.features[3].attributes;
+      attr.south1 = data.features[3].attributes;
 		  attr.south2 = data.features[1].attributes;
 		  attr.south3 = data.features[2].attributes;
 
           northShuttleLatLng1 = attr.north1.Latitude + ',' + attr.north1.Longitude;
           northShuttleLatLng2 = attr.north2.Latitude + ',' + attr.north2.Longitude;
-		  southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
-		  southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
-		  southShuttleLatLng3 = attr.south3.Latitude + ',' + attr.south3.Longitude;
+		  		southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
+		  		southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
+		  		southShuttleLatLng3 = attr.south3.Latitude + ',' + attr.south3.Longitude;
           northBusMarker1.setPosition(new google.maps.LatLng(attr.north1.Latitude, attr.north1.Longitude));
           northBusMarker2.setPosition(new google.maps.LatLng(attr.north2.Latitude, attr.north2.Longitude));
           southBusMarker1.setPosition(new google.maps.LatLng(attr.south1.Latitude, attr.south1.Longitude));

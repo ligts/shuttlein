@@ -67,11 +67,11 @@ a, a:visited, a:focus, a:hover, a:active {
 
 /* Header and Nav */
 header, nav {
-  background: #000 url(../img/texture.png);
-  position: absolute;
+  background: #000000 url(../img/texture.png);
+  /*position: absolute;*/
   width: 100%;
   z-index: 1;
-  opacity: 0.9;
+  /*opacity: 0.9;*/
 }
 
 /* Header */

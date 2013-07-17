@@ -391,7 +391,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "35",
+              minutes: "20",
               ampm: "AM"
             },
    			{
@@ -441,7 +441,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "38",
+              minutes: "23",
               ampm: "AM"
             },
    			{
@@ -491,7 +491,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "43",
+              minutes: "28",
               ampm: "AM"
             },
    			{
@@ -541,7 +541,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "45",
+              minutes: "30",
               ampm: "AM"
             },
    			{
@@ -591,7 +591,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "49",
+              minutes: "34",
               ampm: "AM"
             },
    			{
@@ -641,7 +641,7 @@ $(function() {
             },
 			{
               hours: "8",
-              minutes: "55",
+              minutes: "40",
               ampm: "AM"
             },
    			{
@@ -690,8 +690,8 @@ $(function() {
               ampm: "AM"
             },
 			{
-              hours: "9",
-              minutes: "00",
+              hours: "8",
+              minutes: "45",
               ampm: "AM"
             },
    			{
@@ -740,8 +740,8 @@ $(function() {
               ampm: "AM"
             },
 			{
-              hours: "9",
-              minutes: "05",
+              hours: "8",
+              minutes: "50",
               ampm: "AM"
             },
    			{
@@ -1006,11 +1006,11 @@ $(function() {
     shuttleInfoElem.children('ul').show();
   },
 
-  drawMap = function(northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude3, southLongitude3, attr) {
+  drawMap = function(northLatitude2, northLongitude2, southLatitude2, southLongitude2, southLatitude3, southLongitude3, attr) {
 		
     map = new google.maps.Map(document.getElementById("map_canvas"),{
       zoom: 13,
-      center: new google.maps.LatLng(southLatitude1, southLongitude1), // DEBUG: this is kinda arbitrary for now
+      center: new google.maps.LatLng(southLatitude2, southLongitude2), // DEBUG: this is kinda arbitrary for now
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false
@@ -1024,11 +1024,11 @@ $(function() {
 	  animation: google.maps.Animation.DROP
 	});
 	
-	southBusMarker1 = new google.maps.Marker({
-      position: new google.maps.LatLng(southLatitude1, southLongitude1),
+	southBusMarker2 = new google.maps.Marker({
+      position: new google.maps.LatLng(southLatitude2, southLongitude2),
       map: map,
-      icon: new google.maps.MarkerImage("img/southbusicon1.png"),
-      title: "Current location of SF Commuter Bus - South 1",
+      icon: new google.maps.MarkerImage("img/southbusicon2.png"),
+      title: "Current location of SF Commuter Bus - South 2",
       animation: google.maps.Animation.DROP
     });
 	//addInfoWindow(southBusMarker1, attr.south1.AvgSpeed);
@@ -1049,25 +1049,25 @@ $(function() {
   handleTrackingData = function(attr) {
     // Have to proxy Google Distance Matrix API since it doesn't support JSONP
 	northShuttleLatLng2 = attr.north2.Latitude + ',' + attr.north2.Longitude;
-	southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
+	southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
 	southShuttleLatLng3 = attr.south3.Latitude + ',' + attr.south3.Longitude;
 	// GK: commented this to remove dependency on server
 	//setupStopChooser();
 	
     var northLatitude2 = attr.north2.Latitude;
     var northLongitude2 = attr.north2.Longitude;
-	var southLatitude1 = attr.south1.Latitude;
-    var southLongitude1 = attr.south1.Longitude;
+	var southLatitude2 = attr.south2.Latitude;
+    var southLongitude2 = attr.south2.Longitude;
 	var southLatitude3 = attr.south3.Latitude;
 	var southLongitude3 = attr.south3.Longitude;
 
 	shuttleInfoElem.find('#northShuttle2 .speed').prepend($('<span>').text("North Bus 2: " + attr.north2.AvgSpeed).addClass('value')).css('display', 'inline');
-	shuttleInfoElem.find('#southShuttle1 .speed').prepend($('<span>').text("South Bus 1: " + attr.south1.AvgSpeed).addClass('value')).css('display', 'inline');	
+	shuttleInfoElem.find('#southShuttle2 .speed').prepend($('<span>').text("South Bus 2: " + attr.south2.AvgSpeed).addClass('value')).css('display', 'inline');	
 	shuttleInfoElem.find('#southShuttle3 .speed').prepend($('<span>').text("South Bus 3: " + attr.south3.AvgSpeed).addClass('value')).css('display', 'inline');	
 	
 	shuttleInfoElem.children('.thinking').hide();
     shuttleInfoElem.children('ul').show();
-	drawMap(northLatitude2, northLongitude2, southLatitude1, southLongitude1, southLatitude3, southLongitude3, attr);
+	drawMap(northLatitude2, northLongitude2, southLatitude2, southLongitude2, southLatitude3, southLongitude3, attr);
   },
 
   centerMap = function(lat, longitude) {
@@ -1225,7 +1225,11 @@ $(function() {
         centerMap(southBusMarker1.position.lat(), southBusMarker1.position.lng());
       }
     });
-
+    $("#southShuttleLoc2").click(function() {
+      if (southBusMarker2) {
+        centerMap(southBusMarker2.position.lat(), southBusMarker2.position.lng());
+      }
+    });
     $("#southShuttleLoc3").click(function() {
       if (southBusMarker3) {
         centerMap(southBusMarker3.position.lat(), southBusMarker3.position.lng());
@@ -1253,9 +1257,6 @@ $(function() {
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
 	      // (7/9/13) temporary mapping: 
-	      // 0 - 13567: north2
-	      // 1 - B-120: south1
-	      // 3 - B-131: south3
 	      // south 2 is getting replaced, north 1 is not yet tracked
 
 	      //vehicle label B-484 = north1 --> 125619
@@ -1265,14 +1266,15 @@ $(function() {
 		  //vehicle label B-131 = south3
 	      var attr = {};
 		  attr.north2 = data.features[0].attributes;
-          attr.south1 = data.features[1].attributes;
+          //attr.south1 = data.features[1].attributes;
+          attr.south2 = data.features[2].attributes;
 		  attr.south3 = data.features[3].attributes;
 
           northShuttleLatLng2 = attr.north2.Latitude + ',' + attr.north2.Longitude;
-		  southShuttleLatLng1 = attr.south1.Latitude + ',' + attr.south1.Longitude;
+		  southShuttleLatLng2 = attr.south2.Latitude + ',' + attr.south2.Longitude;
 		  southShuttleLatLng3 = attr.south3.Latitude + ',' + attr.south3.Longitude;
           northBusMarker2.setPosition(new google.maps.LatLng(attr.north2.Latitude, attr.north2.Longitude));
-          southBusMarker1.setPosition(new google.maps.LatLng(attr.south1.Latitude, attr.south1.Longitude));
+          southBusMarker2.setPosition(new google.maps.LatLng(attr.south2.Latitude, attr.south2.Longitude));
           southBusMarker3.setPosition(new google.maps.LatLng(attr.south3.Latitude, attr.south3.Longitude));
         }      
       }
@@ -1298,9 +1300,6 @@ $(function() {
       success: function(data, textStatus) {
         if (data && data.features && data.features.length) {
 	      // (7/9/13) temporary mapping: 
-	      // 0 - 13567: north2
-	      // 1 - B-120: south1
-	      // 3 - B-131: south3
 	      // south 2 is getting replaced, north 1 is not yet tracked
 	
 	      //vehicle label B-484 = north1 --> 125619
@@ -1310,7 +1309,8 @@ $(function() {
 		  //vehicle label B-131 = south3
 	      var attr = {};
 		  attr.north2 = data.features[0].attributes;
-          attr.south1 = data.features[1].attributes;
+          //attr.south1 = data.features[1].attributes;
+          attr.south2 = data.features[2].attributes;
 		  attr.south3 = data.features[3].attributes;
 		
           handleTrackingData(attr);
